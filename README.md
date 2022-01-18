@@ -1,4 +1,4 @@
-# Base de Datos de microelectronica con el SGDB con el SGDB Oracle XE 21c
+# Base de Datos de microelectronica con el SGDB Oracle XE 21c
 
 * Base de Datos acerca de Productos de Microelectrónica desarrollado con el SGDB Oracle XE 21c
 * La Base de Datos consta de tablas que describen de forma genérica los componentes y otras tablas que especifícan dichos componentes por categoria. Hay componentes que entran en la categoría de sensores, otros de circuito integrado, transistores, etc. Hay tablas que pueden especificar aún más la categoría del componente. Como por ejemplo el componente transistor, los transistores pueden ser de tipo BJT, MOSFET, ETC. Si se crea solamente una tabla por categoría no sería una db normalizada, ya que habría campos que no serían completados porque, en el caso de los transistores, un tipo BJT no tiene las mismas características/parámetros que un MOSFET, este ejemplo aplica para el otros tipos de componentes de la db.
@@ -18,7 +18,7 @@
 | Oracle XE | 21 c  | SGDB  |
 | Oracle SQL Developer | 21.4.1  | Gestor de Base de Datos | 
 | Git Bash | 2.29.1  | Control de Versiones |
-| CMD | 10 | Manipular los Servicios de Postgres mediante linea de comandos | 
+| CMD | 10 | Manipular los Servicios de Oracle mediante linea de comandos | 
 
 </br>
 
