@@ -6,9 +6,16 @@
  * ========= DDL =============
  */
 
-drop table componentes;
-drop table componentes_detalles;
-drop table componentes_transistores_bipolares;
+
+-- ELIMINAMOS LAS TABLAS 
+drop table componentes cascade constraints;
+drop table componentes_detalles cascade constraints;
+drop table componentes_transistores_bipolares cascade constraints;
+drop table componentes_transistores_mosfet cascade constraints;
+drop table componentes_capacitores_electroliticos cascade constraints;
+drop table componentes_resistores_alta_frecuencia cascade constraints;
+
+
 
 
 create table componentes(
@@ -27,7 +34,6 @@ precio  number(8,2) not null -- ej: 5.55 dolares
 
 
 -- ======= Restricciones Tabla componentes ===========
-
 
 
 -- CHECK STOCK
@@ -55,17 +61,24 @@ create table componentes_detalles(
 id 							char(2000) primary key,
 id_componente 				char(2000)       not null,
 hoja_de_datos				varchar2(700)	 not null, --link datasheet
-longitud					number(8,2)	 not null,-- 69.0 mm
-ancho						number(8,2) 	 not null,-- 56.7 mm
-peso						number(8,2) 	 not null,-- 19.4 gramos
+longitud					varchar2(30)	 not null,-- 69.0 mm
+ancho						varchar2(30) 	 not null,-- 56.7 mm
+peso						varchar2(30) 	 not null,-- 19.4 gramos
 material					varchar2(50)	 	 not null,-- silicio,acero, plastico, etc
-voltaje_recomendado			number(8,2)	 not null, -- 5 voltios
-voltaje_min_entrada			number(8,2)	 not null,-- 7  voltios (recomendado)
-voltaje_max_entrada			number(8,2)	 not null-- 12  voltios (recomendado)
+voltaje_recomendado			varchar2(30)	 not null, -- 5 voltios
+voltaje_min_entrada			varchar2(30)	 not null,-- 7  voltios (recomendado)
+voltaje_max_entrada			varchar2(30)	 not null-- 12  voltios (recomendado)
 
 );
 
 -- ======= Restricciones Tabla componentes_detalles ===========
+
+
+-- UNIQUE ID_COMPONENTE
+alter table componentes_detalles
+add constraint UNIQUE_componentes_detalles_id_componente
+unique (id_componente);
+
 
 -- FK ID_COMPONENTE
 alter table componentes_detalles 
@@ -73,26 +86,6 @@ add constraint FK_componentes_detalles_id_componente
 foreign key(id_componente)
 references componentes(id);
 
-
--- CHECK VOLTAJE_RECOMENDADO
-alter table componentes_detalles
-add constraint CHECK_componentes_detalles_voltaje_recomendado
-check (voltaje_recomendado > 0 and voltaje_recomendado <= 220);
-
-
--- CHECK VOLTAJE_MIN_ENTRADA
-alter table componentes_detalles
-add constraint CHECK_componentes_detalles_voltaje_min_entrada
-check ( (voltaje_min_entrada > 0 and voltaje_min_entrada <= 220) and (voltaje_min_entrada < voltaje_max_entrada));
-
-
--- CHECK VOLTAJE_MAX_ENTRADA
-alter table componentes_detalles
-add constraint CHECK_componentes_detalles_voltaje_max_entrada
-check (( voltaje_max_entrada > 0 and voltaje_max_entrada <= 220) and (voltaje_max_entrada > voltaje_min_entrada));
-
-
--- ---------------------------------------------------------------------------
 
 -- ---------------------------------------------------------------------------
 
@@ -104,21 +97,27 @@ create table componentes_transistores_bipolares(
 	
 id 							char(2000) primary key,
 id_componente 				char(2000) not null,
-tipo						varchar2(100) 	not null, -- NPN, PNP
+tipo						varchar2(10) 	not null, -- NPN, PNP
 --Desempeño
-voltaje_colec_emis_corte    number(8,2)    not null, ---30V, 5.5V
-voltaje_colec_emis_sat    	number(8,2)    not null, ---30V, 5.5V
-voltaje_emis_base_corte   number(8,2)    not null, ---30V, 5.5V
+voltaje_colec_emis_corte    varchar2(30)    , ---30V, 5.5V
+voltaje_colec_emis_sat    	varchar2(30)   , ---30V, 5.5V
+voltaje_emis_base_corte     varchar2(30)    , ---30V, 5.5V
 --Caract. Térmicas			
-disip_max					number(8,2)    not null, ---0.645W
-temp_juntura				varchar2(50)    not null, ----55a+155 °C
+disip_max					varchar2(30)    , ---0.645W
+temp_juntura				varchar2(50)   , ----55a+155 °C
 --Caract. Eléctricas
-voltaje_ruptura_colec_emis	number(8,2)    not null, ---30 V 
-voltaje_ruptura_colec_base	number(8,2)    not null, ---30 V
-voltaje_ruptura_emis_base	number(8,2)    not null ---30 V
+voltaje_ruptura_colec_emis	varchar2(30)   , ---30 V 
+voltaje_ruptura_colec_base	varchar2(30)   , ---30 V
+voltaje_ruptura_emis_base	varchar2(30)     ---30 V
 );
 
 -- ======= Restricciones Tabla componentes_transistores_bipolares ===========
+
+
+-- UNIQUE ID_COMPONENTE
+alter table componentes_transistores_bipolares
+add constraint UNIQUE_componentes_transistores_bipolares_id_componente
+unique (id_componente);
 
 
 
@@ -129,16 +128,125 @@ foreign key(id_componente)
 references componentes(id);
 
 
--- CHECK VOLTAJE_COLEC_EMIS_CORTE 
-alter table componentes_transistores_bipolares 
-add constraint CHECK_componentes_transistores_bipolares_voltaje_colec_emis_corte
-check ((voltaje_colec_emis_corte > 0) and (voltaje_colec_emis_corte <= 220));
 
 
--- CHECK VOLTAJE_EMIS_BASE_CORTE 
-alter table componentes_transistores_bipolares 
-add constraint CHECK_componentes_transistores_bipolares_voltaje_emis_base_corte 
-check ((voltaje_emis_base_corte  > 0) and (voltaje_emis_base_corte  <= 220));
+-- ---------------------------------------------------------------------------
+
+-- ---------------------------------------------------------------------------
+
+-- ======= TABLA COMPONENTES_TRANSISTORES_MOSFET ===========
+
+create table componentes_transistores_mosfet(
+	
+id 							char(2000) primary key,
+id_componente 				char(2000) not null,
+tipo						varchar2(10) 	not null, -- nMos, pMos
+--Espec Máximas
+voltaje_drenaje_fuente      varchar2(30)    , ---40v
+corriente_cc_drenaje    	varchar2(30)    , ---0.15A
+--Caract. Térmicas			
+disip_max					varchar2(30)   , ---0.35W
+temp_op_max				    varchar2(50)    , ----150 °C
+--Caract. Eléctricas
+conduct_drenaje_sustrato	varchar2(50)   , ---14 pF 
+resist_drenaje_fuente	    varchar2(50)  ---30 Ohm
+
+);
+
+-- ======= Restricciones Tabla componentes_transistores_mosfet ===========
+
+
+-- UNIQUE ID_COMPONENTE 
+alter table componentes_transistores_mosfet
+add constraint UNIQUE_componentes_transistores_mosfet_id_componente
+unique (id_componente);
+
+
+
+-- FK ID_COMPONENTE
+alter table componentes_transistores_mosfet
+add constraint FK_componentes_transistores_mosfet_id_componente
+foreign key(id_componente)
+references componentes(id);
+
+
+
+
+
+-- ---------------------------------------------------------------------------
+
+-- ---------------------------------------------------------------------------
+
+-- ======= TABLA COMPONENTES_CAPACITORES_ELECTROLITICOS ===========
+
+create table componentes_capacitores_electroliticos(
+	
+id 							char(2000)      primary key,
+id_componente 				char(2000)      not null,
+tipo						varchar2(30) 	not null, -- plomo axial, plomo radial, etc
+--Espec 
+capacitancia                 varchar2(30)    , ---10000 uF
+tolerancia                	 varchar2(30)     , --- +/- 20%
+--Caract. Térmicas			
+rango_temperatura			 varchar2(50)   , --- -55 °C to +105 °C
+--Caract. Eléctricas
+rango_tension_nominal     	 varchar2(50)    --- 10 V to 100 V
+
+);
+
+-- ======= Restricciones Tabla componentes_capacitores_electroliticos ===========
+
+
+-- UNIQUE ID_COMPONENTE 
+alter table componentes_capacitores_electroliticos
+add constraint UNIQUE_componentes_capacitores_electroliticos_id_componente
+unique (id_componente);
+
+-- FK ID_COMPONENTE
+alter table componentes_capacitores_electroliticos
+add constraint CHECK_componentes_capacitores_electroliticos_id_componente
+foreign key(id_componente)
+references componentes(id);
+
+
+
+
+-- ---------------------------------------------------------------------------
+
+-- ---------------------------------------------------------------------------
+
+-- ======= TABLA COMPONENTES_RESISTORES_ALTA_FRECUENCIA ===========
+
+create table componentes_resistores_alta_frecuencia(
+	
+id 							char(2000)      primary key,
+id_componente 				char(2000)      not null,
+--Espec 
+capacitancia                 varchar2(50)    , ---10000 uF
+rango_tolerancia             varchar2(50)     , ---  ± 5, ± 10, ± 20 standard
+rango_resis_gral             varchar2(30)     , ---  20 ? to 1000 ?
+rango_resis_microondas       varchar2(30)     , ---  20 ? to 100 ?
+capacitancia_parasita        varchar2(30)     , ---   0.2 pF
+--Caract. Térmicas			
+rango_temperatura			 varchar2(50)   , --- -55 to +125 °C
+--Caract. Eléctricas
+tension_operativo     	      varchar2(50)    ---  100 V
+
+);
+
+-- ======= Restricciones Tabla componentes_resistores_alta_frecuencia ===========
+
+
+-- UNIQUE ID_COMPONENTE 
+alter table componentes_resistores_alta_frecuencia
+add constraint UNIQUE_componentes_resistores_alta_frecuencia_id_componente
+unique (id_componente);
+
+-- FK ID_COMPONENTE
+alter table componentes_resistores_alta_frecuencia
+add constraint CHECK_componentes_resistores_alta_frecuencia_id_componente
+foreign key(id_componente)
+references componentes(id);
 
 
 
