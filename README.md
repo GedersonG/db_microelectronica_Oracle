@@ -1,9 +1,13 @@
-# Base de Datos de microelectronica con el SGDB con el SGDB Oracle XE 21c
+# Base de Datos de microelectronica con el SGDB Oracle XE 21c
 
 * Base de Datos acerca de Productos de Microelectrónica desarrollado con el SGDB Oracle XE 21c
 * La Base de Datos consta de tablas que describen de forma genérica los componentes y otras tablas que especifícan dichos componentes por categoria. Hay componentes que entran en la categoría de sensores, otros de circuito integrado, transistores, etc. Hay tablas que pueden especificar aún más la categoría del componente. Como por ejemplo el componente transistor, los transistores pueden ser de tipo BJT, MOSFET, ETC. Si se crea solamente una tabla por categoría no sería una db normalizada, ya que habría campos que no serían completados porque, en el caso de los transistores, un tipo BJT no tiene las mismas características/parámetros que un MOSFET, este ejemplo aplica para el otros tipos de componentes de la db.
 * Se analizó la posibilidad de solamente implementar características genéricas ya que las especificaciones técnicas de todo tipo de componente están indexadas dentro de un datasheet que el fabricante provee, pero teniendo en consideración que esta es una base de datos que puede aplicar como modelo de una real para fabricantes, se toma dichas consideraciones y se agrega un campo para almacenar la hoja de datos del componente y se normaliza con tablas según las categorías de los mismos.
+* Una Página de Ejemplo sería http://gmelectronicaweb.com/catalogo/pag108.html , ahí se puede visualizar que se proyectan los datos más relevantes de los componentes sin necesidad de implementar una hoja de datos completa
+* Para las Especificaciones de los Transistores me base en la página https://alltransistors.com/es/mosfet/transistor.php?transistor=4 
+* Para las Especificaciones de los capacitores y Resistores me base en la página https://ar.mouser.com/c/ds/passive-components/capacitors/aluminum-electrolytic-capacitors/
 * Los registros no son completamente reales, parte de la información es veridica y parte no. Es un proyecto, no un producto. Más allá que tenga las condiciones para aplicar.
+* La Base de Datos puede ser Escalable siguiendo el mismo patrón de Normalización del Proyecto, solo se realizaron 10 tablas a modo de aplicación.
 
 
 
@@ -18,7 +22,7 @@
 | Oracle XE | 21 c  | SGDB  |
 | Oracle SQL Developer | 21.4.1  | Gestor de Base de Datos | 
 | Git Bash | 2.29.1  | Control de Versiones |
-| CMD | 10 | Manipular los Servicios de Postgres mediante linea de comandos | 
+| CMD | 10 | Manipular los Servicios de Oracle mediante linea de comandos | 
 
 </br>
 
