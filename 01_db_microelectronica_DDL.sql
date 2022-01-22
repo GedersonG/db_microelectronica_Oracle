@@ -15,18 +15,35 @@ drop table componentes_transistores_mosfet cascade constraints;
 drop table componentes_capacitores_electroliticos cascade constraints;
 drop table componentes_resistores_alta_frecuencia cascade constraints;
 
+-- ELIMINAMOS TODAS LAS SECUENCIAS AUTO INCREMENTABLES ID 
+drop sequence id_seq_comp;
+drop sequence id_seq_comp_det;
+drop sequence id_seq_comp_trans_bip;
+drop sequence id_seq_comp_trans_mosf;
+drop sequence id_seq_comp_cap_elect;
+drop sequence id_seq_comp_resis_alt_frec;
+
+
+-- CREAMOS LAS SECUENCIAS AUTOINCREMENTABLES ID
+create sequence id_seq_comp start with 1 increment by 1;
+create sequence id_seq_comp_det start with 1 increment by 1;
+create sequence id_seq_comp_trans_bip start with 1 increment by 1;
+create sequence id_seq_comp_trans_mosf start with 1 increment by 1;
+create sequence id_seq_comp_cap_elect start with 1 increment by 1;
+create sequence id_seq_comp_resis_alt_frec start with 1 increment by 1;
+
 
 
 
 create table componentes(
 	
-id char(2000) primary key ,
+id      char(2000)  default id_seq_comp.nextval  not null,
 codigo varchar2(100) not null, -- ej: mh-r-447y8
 imagen varchar2(1000), -- link de la imagen
-categoria varchar2(50) not null, -- ej: sensor, circuito integrado, transistor,etc
-nombre varchar2(100) not null, -- ej: Sensor de Agua MH 
-modelo varchar2(100) not null, -- ej: MH
-marca varchar2(50) not null, -- ej: Generico
+nro_pieza varchar2(200) not null, -- ej: KSH13005
+categoria varchar2(100) not null, -- ej: sensor, circuito integrado, transistor,etc
+descripcion varchar2(100) not null, -- ej:transistor bjt npn
+fabricante varchar2(100) not null, -- ej: SHANTOU HUASHAN, generico
 stock char(200) not null, -- ej: 100, 200, etc
 precio  number(8,2) not null -- ej: 5.55 dolares 
 
@@ -34,7 +51,10 @@ precio  number(8,2) not null -- ej: 5.55 dolares
 
 
 -- ======= Restricciones Tabla componentes ===========
-
+-- PRIMARY KEY (LO SETEAMOS ACA PORQUE AGREGAMOS EL AUTOINCREMENT EN LA TABLA)
+alter table componentes 
+add constraint PK_componentes_id
+primary key(id);
 
 -- CHECK STOCK
 alter table componentes
@@ -58,7 +78,7 @@ check (precio > 0 );
 
 create table componentes_detalles(
 	
-id 							char(2000) primary key,
+id 							char(2000)       default id_seq_comp_det.nextval  not null,
 id_componente 				char(2000)       not null,
 hoja_de_datos				varchar2(700)	 not null, --link datasheet
 longitud					varchar2(30)	 not null,-- 69.0 mm
@@ -72,6 +92,10 @@ voltaje_max_entrada			varchar2(30)	 not null-- 12  voltios (recomendado)
 );
 
 -- ======= Restricciones Tabla componentes_detalles ===========
+-- PRIMARY KEY (LO SETEAMOS ACA PORQUE AGREGAMOS EL AUTOINCREMENT EN LA TABLA)
+alter table componentes_detalles
+add constraint PK_componentes__detalles_id
+primary key(id);
 
 
 -- UNIQUE ID_COMPONENTE
@@ -95,8 +119,8 @@ references componentes(id);
 
 create table componentes_transistores_bipolares(
 	
-id 							char(2000) primary key,
-id_componente 				char(2000) not null,
+id 							char(2000)      default id_seq_comp_trans_bip.nextval  not null,
+id_componente 				char(2000)      not null,
 tipo						varchar2(10) 	not null, -- NPN, PNP
 --Desempeño
 voltaje_colec_emis_corte    varchar2(30)    , ---30V, 5.5V
@@ -112,6 +136,10 @@ voltaje_ruptura_emis_base	varchar2(30)     ---30 V
 );
 
 -- ======= Restricciones Tabla componentes_transistores_bipolares ===========
+-- PRIMARY KEY (LO SETEAMOS ACA PORQUE AGREGAMOS EL AUTOINCREMENT EN LA TABLA)
+alter table componentes_transistores_bipolares
+add constraint PK_componentes_transistores_bipolares_id
+primary key(id);
 
 
 -- UNIQUE ID_COMPONENTE
@@ -138,8 +166,8 @@ references componentes(id);
 
 create table componentes_transistores_mosfet(
 	
-id 							char(2000) primary key,
-id_componente 				char(2000) not null,
+id 							char(2000)      default id_seq_comp_trans_mosf.nextval  not null,
+id_componente 				char(2000)      not null,
 tipo						varchar2(10) 	not null, -- nMos, pMos
 --Espec Máximas
 voltaje_drenaje_fuente      varchar2(30)    , ---40v
@@ -154,6 +182,11 @@ resist_drenaje_fuente	    varchar2(50)  ---30 Ohm
 );
 
 -- ======= Restricciones Tabla componentes_transistores_mosfet ===========
+
+-- PRIMARY KEY (LO SETEAMOS ACA PORQUE AGREGAMOS EL AUTOINCREMENT EN LA TABLA)
+alter table componentes_transistores_mosfet
+add constraint PK_componentes_transistores_mosfet_id
+primary key(id);
 
 
 -- UNIQUE ID_COMPONENTE 
@@ -181,7 +214,7 @@ references componentes(id);
 
 create table componentes_capacitores_electroliticos(
 	
-id 							char(2000)      primary key,
+id 							char(2000)      default id_seq_comp_cap_elect.nextval  not null,
 id_componente 				char(2000)      not null,
 tipo						varchar2(30) 	not null, -- plomo axial, plomo radial, etc
 --Espec 
@@ -195,6 +228,13 @@ rango_tension_nominal     	 varchar2(50)    --- 10 V to 100 V
 );
 
 -- ======= Restricciones Tabla componentes_capacitores_electroliticos ===========
+
+-- PRIMARY KEY (LO SETEAMOS ACA PORQUE AGREGAMOS EL AUTOINCREMENT EN LA TABLA)
+alter table componentes_capacitores_electroliticos
+add constraint PK_componentes_capacitores_electroliticos_id
+primary key(id);
+
+
 
 
 -- UNIQUE ID_COMPONENTE 
@@ -219,7 +259,7 @@ references componentes(id);
 
 create table componentes_resistores_alta_frecuencia(
 	
-id 							char(2000)      primary key,
+id 							char(2000)      default id_seq_comp_resis_alt_frec.nextval  not null,
 id_componente 				char(2000)      not null,
 --Espec 
 capacitancia                 varchar2(50)    , ---10000 uF
@@ -235,6 +275,13 @@ tension_operativo     	      varchar2(50)    ---  100 V
 );
 
 -- ======= Restricciones Tabla componentes_resistores_alta_frecuencia ===========
+
+
+-- PRIMARY KEY (LO SETEAMOS ACA PORQUE AGREGAMOS EL AUTOINCREMENT EN LA TABLA)
+alter table componentes_resistores_alta_frecuencia
+add constraint PK_componentes_resistores_alta_frecuencia_id
+primary key(id);
+
 
 
 -- UNIQUE ID_COMPONENTE 
