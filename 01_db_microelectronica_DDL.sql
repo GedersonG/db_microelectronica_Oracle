@@ -81,13 +81,13 @@ create table componentes_detalles(
 id 							char(2000)       default id_seq_comp_det.nextval  not null,
 id_componente 				char(2000)       not null,
 hoja_de_datos				varchar2(700)	 not null, --link datasheet
-longitud					varchar2(30)	 not null,-- 69.0 mm
-ancho						varchar2(30) 	 not null,-- 56.7 mm
-peso						varchar2(30) 	 not null,-- 19.4 gramos
-material					varchar2(50)	 	 not null,-- silicio,acero, plastico, etc
-voltaje_recomendado			varchar2(30)	 not null, -- 5 voltios
-voltaje_min_entrada			varchar2(30)	 not null,-- 7  voltios (recomendado)
-voltaje_max_entrada			varchar2(30)	 not null-- 12  voltios (recomendado)
+longitud					varchar2(30)	 ,-- 69.0 mm
+ancho						varchar2(30) 	 ,-- 56.7 mm
+peso						varchar2(30) 	,-- 19.4 gramos
+material					varchar2(50)	 ,-- silicio,acero, plastico, etc
+voltaje_recomendado			varchar2(30)	 , -- 5 voltios
+voltaje_min_entrada			varchar2(30)	,-- 7  voltios (recomendado)
+voltaje_max_entrada			varchar2(30)	 -- 12  voltios (recomendado)
 
 );
 
@@ -123,16 +123,16 @@ id 							char(2000)      default id_seq_comp_trans_bip.nextval  not null,
 id_componente 				char(2000)      not null,
 tipo						varchar2(10) 	not null, -- NPN, PNP
 --Desempeño
-voltaje_colec_emis_corte    varchar2(30)    , ---30V, 5.5V
-voltaje_colec_emis_sat    	varchar2(30)   , ---30V, 5.5V
-voltaje_emis_base_corte     varchar2(30)    , ---30V, 5.5V
+voltaje_colec_emis         varchar2(30)    , ---30V, 5.5V
+voltaje_colec_base         varchar2(30)    , ---30V, 5.5V
+voltaje_emis_base           varchar2(30)    , ---30V, 5.5V
+voltaje_colec_emis_sat     varchar2(30)    , ---30V, 5.5V
+corriente_colec             varchar2(30)    , ---1.5A
+ganancia_hfe                varchar2(30)    , ---1.5A
 --Caract. Térmicas			
 disip_max					varchar2(30)    , ---0.645W
-temp_juntura				varchar2(50)   , ----55a+155 °C
---Caract. Eléctricas
-voltaje_ruptura_colec_emis	varchar2(30)   , ---30 V 
-voltaje_ruptura_colec_base	varchar2(30)   , ---30 V
-voltaje_ruptura_emis_base	varchar2(30)     ---30 V
+temp_juntura				varchar2(50)    ----55a+155 °C
+
 );
 
 -- ======= Restricciones Tabla componentes_transistores_bipolares ===========
