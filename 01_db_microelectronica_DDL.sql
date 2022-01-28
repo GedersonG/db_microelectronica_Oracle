@@ -1,5 +1,5 @@
 /* -------------------------------
- * ------ MICROELECTRONCIA---------
+ * ------ MICROELECTRONICA---------
  * --------------------------------
  * 
  * 
@@ -15,6 +15,14 @@ drop table componentes_transistores_mosfet cascade constraints;
 drop table componentes_capacitores_electroliticos cascade constraints;
 drop table componentes_resistores_alta_frecuencia cascade constraints;
 
+drop table componentes_microcontroladores_risc_pics cascade constraints;
+drop table componentes_microcontroladores_risc_avrs cascade constraints;
+drop table componentes_placas_arduinos cascade constraints;
+drop table componentes_placas_esp8266 cascade constraints;
+drop table componentes_placas_esp32 cascade constraints;
+
+
+
 -- ELIMINAMOS TODAS LAS SECUENCIAS AUTO INCREMENTABLES ID 
 drop sequence id_seq_comp;
 drop sequence id_seq_comp_det;
@@ -22,6 +30,12 @@ drop sequence id_seq_comp_trans_bip;
 drop sequence id_seq_comp_trans_mosf;
 drop sequence id_seq_comp_cap_elect;
 drop sequence id_seq_comp_resis_alt_frec;
+
+drop sequence id_seq_comp_micr_risc_pics;
+drop sequence id_seq_comp_micr_risc_avrs;
+drop sequence id_seq_comp_plac_arduinos;
+drop sequence id_seq_comp_plac_esp8266;
+drop sequence id_seq_comp_plac_esp32;
 
 
 -- CREAMOS LAS SECUENCIAS AUTOINCREMENTABLES ID
@@ -32,6 +46,11 @@ create sequence id_seq_comp_trans_mosf start with 1 increment by 1;
 create sequence id_seq_comp_cap_elect start with 1 increment by 1;
 create sequence id_seq_comp_resis_alt_frec start with 1 increment by 1;
 
+create sequence id_seq_comp_micr_risc_pics start with 1 increment by 1;
+create sequence id_seq_comp_micr_risc_avrs start with 1 increment by 1;
+create sequence id_seq_comp_plac_arduino start with 1 increment by 1;
+create sequence id_seq_comp_plac_esp8266 start with 1 increment by 1;
+create sequence id_seq_comp_plac_esp32 start with 1 increment by 1;
 
 
 
@@ -292,6 +311,54 @@ unique (id_componente);
 -- FK ID_COMPONENTE
 alter table componentes_resistores_alta_frecuencia
 add constraint CHECK_componentes_resistores_alta_frecuencia_id_componente
+foreign key(id_componente)
+references componentes(id);
+
+
+
+-- ---------------------------------------------------------------------------
+
+-- ---------------------------------------------------------------------------
+
+-- Página Hoja de datos pics : https://www.kynix.com/Detail/10386/PIC18F4520-I%2FPT.html?gclid=Cj0KCQiAxc6PBhCEARIsAH8Hff0_9CtuRscm1qf3-50qS1D_lP8jdspHgQRWw904hpn6nC1sXRh4JnQaAlpxEALw_wcB
+
+-- ======= TABLA COMPONENTES_MICROCONTROLADORES_RISC_PICS ===========
+
+create table componentes_microcontroladores_risc_pics(
+	
+id 							char(2000)      default  id_seq_comp_micr_risc_pics.nextval  not null,
+id_componente 				char(2000)      not null,
+ 
+frec_operacion               varchar2(50)    , --- DC-40 Mhz
+memoria_programa             varchar2(50)     , ---  16384 bytes
+memoria_datos                varchar2(50)     , ---  768 bytes
+memoria_datos_eeprom         varchar2(50)     , ---  256 bytes
+cantidad_fuentes_interrup    char(5)     , ---  19   
+cantidad_timers              char(5)     , ---  4      
+comunic_seriales             varchar2(200)     , ---  MSSP, Enhanced USART      
+set_instrucciones            varchar2(200)     ---  75 Instructions; 83 with Extended Instruction Set Enabled     
+
+);
+
+-- ======= Restricciones Tabla componentes_microcontroladores_risc_pics ===========
+
+
+-- PRIMARY KEY (LO SETEAMOS ACA PORQUE AGREGAMOS EL AUTOINCREMENT EN LA TABLA)
+alter table componentes_microcontroladores_risc_pics
+add constraint PK_componentes_microcontroladores_risc_pics_id
+primary key(id);
+
+
+
+-- UNIQUE ID_COMPONENTE 
+alter table componentes_microcontroladores_risc_pics
+add constraint UNIQUE_componentes_microcontroladores_risc_pics_id_componente
+unique (id_componente);
+
+
+-- FK ID_COMPONENTE
+alter table componentes_microcontroladores_risc_pics
+add constraint CHECK_componentes_microcontroladores_risc_pics_id_componente
 foreign key(id_componente)
 references componentes(id);
 
