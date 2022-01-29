@@ -39,18 +39,17 @@ drop sequence id_seq_comp_plac_esp32;
 
 
 -- CREAMOS LAS SECUENCIAS AUTOINCREMENTABLES ID
-create sequence id_seq_comp start with 1 increment by 1;
-create sequence id_seq_comp_det start with 1 increment by 1;
-create sequence id_seq_comp_trans_bip start with 1 increment by 1;
-create sequence id_seq_comp_trans_mosf start with 1 increment by 1;
-create sequence id_seq_comp_cap_elect start with 1 increment by 1;
-create sequence id_seq_comp_resis_alt_frec start with 1 increment by 1;
-
-create sequence id_seq_comp_micr_risc_pics start with 1 increment by 1;
-create sequence id_seq_comp_micr_risc_avrs start with 1 increment by 1;
-create sequence id_seq_comp_plac_arduino start with 1 increment by 1;
-create sequence id_seq_comp_plac_esp8266 start with 1 increment by 1;
-create sequence id_seq_comp_plac_esp32 start with 1 increment by 1;
+create sequence id_seq_comp start with 1 increment by 1 nocache nocycle;
+create sequence id_seq_comp_det start with 1 increment by 1 nocache nocycle;
+create sequence id_seq_comp_trans_bip start with 1 increment by 1 nocache nocycle;
+create sequence id_seq_comp_trans_mosf start with 1 increment by 1 nocache nocycle;
+create sequence id_seq_comp_cap_elect start with 1 increment by 1 nocache nocycle;
+create sequence id_seq_comp_resis_alt_frec start with 1 increment by 1 nocache nocycle;
+create sequence id_seq_comp_micr_risc_pics start with 1 increment by 1 nocache nocycle;
+create sequence id_seq_comp_micr_risc_avrs start with 1 increment by 1 nocache nocycle;
+create sequence id_seq_comp_plac_arduino start with 1 increment by 1 nocache nocycle;
+create sequence id_seq_comp_plac_esp8266 start with 1 increment by 1 nocache nocycle;
+create sequence id_seq_comp_plac_esp32 start with 1 increment by 1 nocache nocycle;
 
 
 
@@ -315,7 +314,6 @@ foreign key(id_componente)
 references componentes(id);
 
 
-
 -- ---------------------------------------------------------------------------
 
 -- ---------------------------------------------------------------------------
@@ -328,7 +326,6 @@ create table componentes_microcontroladores_risc_pics(
 	
 id 							char(2000)      default  id_seq_comp_micr_risc_pics.nextval  not null,
 id_componente 				char(2000)      not null,
- 
 frec_operacion               varchar2(50)    , --- DC-40 Mhz
 memoria_programa             varchar2(50)     , ---  16384 bytes
 memoria_datos                varchar2(50)     , ---  768 bytes

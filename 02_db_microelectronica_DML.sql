@@ -68,12 +68,12 @@ describe componentes;
 -- ============================ INSERTS TRANSISTORES BJT ===================================================
 insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , fabricante , stock , precio) values
 ('HDGHFK-KSH13005' , 'https://images.alldatasheet.es/semiconductor/electronic_parts/datasheet/335783/HUASHAN/KSH13005.GIF' 
-,'KSH13005' , 'Transistor' , 'Transistor BJT NPN', 'SHANTOU HUASHAN', 300, 2.0
+,'KSH13005' , 'Transistores BJT' , 'Transistor BJT NPN', 'SHANTOU HUASHAN', 300, 2.0
 );
 
 insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , fabricante , stock , precio) values
 ('DFHSDK-3CD010G' , 'https://http2.mlstatic.com/D_NQ_NP_906581-MLA32747237952_112019-O.webp' 
-,'3CD010G' , 'Transistor' , 'Transistor BJT PNP', 'INCHANGE SEMICONDUCTOR', 400, 5.0
+,'3CD010G' , 'Transistores BJT' , 'Transistor BJT PNP', 'INCHANGE SEMICONDUCTOR', 400, 5.0
 );
 
 
@@ -81,28 +81,34 @@ insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , 
 -- ============================ INSERTS TRANSISTORES MOSFET ===================================================
 insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , fabricante , stock , precio) values
  ('JDHFYT-AP4519GED' , 'https://alltransistors.com/adv/pdfdatasheet_ape/image/ap4511gh-hf_0001.jpg'
- ,'AP4519GED' , 'Transistor' , 'Transistor Mosfet NP' , 'Advanced Power' , 200 ,4.0
+ ,'AP4519GED' , 'Transistores MOSFET' , 'Transistor Mosfet NP' , 'Advanced Power' , 200 ,4.0
  );
  
  
  insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , fabricante , stock , precio) values
  ('HJDGHF-SL60N06' , 'https://http2.mlstatic.com/D_NQ_NP_2X_893006-MLA41523372205_042020-F.webp'
- ,'SL60N06' , 'Transistor' , 'Transistor Mosfet N' , 'Slkor' , 50 , 7.0
+ ,'SL60N06' , 'Transistores MOSFET' , 'Transistor Mosfet N' , 'Slkor' , 50 , 7.0
  );
+ 
+ 
+ 
+ 
+ -- ============================ INSERTS RESISTORES DE ALTA FRECUENCIA ===================================================
+-- https://ar.mouser.com/ProductDetail/Vishay-Electro-Films/MIF2500BFKMGNHT5?qs=sGAEpiMZZMukHu%252BjC5l7YTdS15yq3RDAQ2ShXPLobqc%3D
+insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , fabricante , stock , precio) values
+ ('594-MIF2500BFKMGNHT5' , 'https://ar.mouser.com/images/vishay/images/mif1000afkmgnht5_SPL.jpg' 
+ , 'FKMGNHT5' , 'Resistores de Alta Frecuencia' , 'Resistores de alta frecuencia RF 25ohms 1% 100ppm' , 'VISHAY' , 800 , 5);
+ 
+ -- https://ar.mouser.com/ProductDetail/ATC-Kyocera-AVX/CS12010T0100GTR?qs=S4ILP0tmc7RtGe5NcuJBYQ%3D%3D
+ insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , fabricante , stock , precio) values
+ ('581-CS12010T0100GTR' , 'https://ar.mouser.com/images/americantechnicalceramics/images/ATCFT.jpg' 
+ , 'T0100GTR' , 'Resistores de Alta Frecuencia' , 'Resistores de alta frecuencia RF 100ohms 2% 10W' , 'KYSHOCERA' , 1200 , 3);
+ 
  
  
  
  -- https://ar.mouser.com/c/ds/passive-components/capacitors/aluminum-electrolytic-capacitors/
  -- ============================ INSERTS CAPACITORES ELECTROLITICOS ===================================================
-insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , fabricante , stock , precio) values
- ('JFKIG-136RVI' , 'https://cdn.sos.sk/productdata/e2/ed/548f2ccf/136-rvi-470uf-16v-105degc-mal213665471e3.jpg' 
- , '136RVI' , 'Capacitor' , 'Capacitor Electrolitico Plomo Radial de Aluminio' , 'VISHAY' , 300 , 2);
- 
- insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , fabricante , stock , precio) values
- ('KHII-PEG228' , 'https://www.mouser.com/images/marketingid/2014/img/103855608.png?v=010721.0953' 
- , 'PEG228' , 'Capacitor' , 'Capacitor Electrolitico Plomo Axial de Aluminio' , 'KEMET' , 400 , 3);
- 
- 
  
  
 -- https://www.kynix.com/Detail/10386/PIC18F4520-I%2FPT.html?gclid=Cj0KCQiAxc6PBhCEARIsAH8Hff0_9CtuRscm1qf3-50qS1D_lP8jdspHgQRWw904hpn6nC1sXRh4JnQaAlpxEALw_wcB
@@ -177,18 +183,33 @@ insert into componentes_detalles(id_componente , hoja_de_datos , longitud , anch
 
 
 
--- https://www.kynix.com/Detail/10386/PIC18F4520-I%2FPT.html?gclid=Cj0KCQiAxc6PBhCEARIsAH8Hff0_9CtuRscm1qf3-50qS1D_lP8jdspHgQRWw904hpn6nC1sXRh4JnQaAlpxEALw_wcB
 
--- ======= INSERTS MICROCONTROLADORES_RISC_PICS ===========
+ -- ============================ INSERTS RESISTORES DE ALTA FRECUENCIA ===================================================
+insert into componentes_detalles(id_componente , hoja_de_datos , longitud , ancho 
+, peso ,material, voltaje_recomendado , voltaje_min_entrada , voltaje_max_entrada)values
+(7 , 'https://www.vishay.com/docs/61038/mif.pdf' , null, null , null, null
+, '0 a 300 VDC' , '0 VDC' , '400 VDC');
+
 
 insert into componentes_detalles(id_componente , hoja_de_datos , longitud , ancho 
 , peso ,material, voltaje_recomendado , voltaje_min_entrada , voltaje_max_entrada)values
-(7 , 'https://www.kynix.com/uploadfiles/pdf8798/PIC18F4520-I2fPT_10386.pdf' , null, null , null, null
+(8 , 'https://ar.mouser.com/datasheet/2/40/resistive_prod_cs-1920496.pdf' , null, null , null, null
+, '0 a 300 VDC' , '0 VDC' , '400 VDC');
+
+
+
+
+-- ======= INSERTS MICROCONTROLADORES_RISC_PICS ===========
+-- https://www.kynix.com/Detail/10386/PIC18F4520-I%2FPT.html?gclid=Cj0KCQiAxc6PBhCEARIsAH8Hff0_9CtuRscm1qf3-50qS1D_lP8jdspHgQRWw904hpn6nC1sXRh4JnQaAlpxEALw_wcB
+
+insert into componentes_detalles(id_componente , hoja_de_datos , longitud , ancho 
+, peso ,material, voltaje_recomendado , voltaje_min_entrada , voltaje_max_entrada)values
+(9 , 'https://www.kynix.com/uploadfiles/pdf8798/PIC18F4520-I2fPT_10386.pdf' , null, null , null, null
 , '2 a 5.5 VDC' , '2.0 VDC' , '5.5 VDC');
 
 insert into componentes_detalles(id_componente , hoja_de_datos , longitud , ancho 
 , peso ,material, voltaje_recomendado , voltaje_min_entrada , voltaje_max_entrada)values
-(8 , 'https://www.alldatasheet.com/view.jsp?Searchword=PIC-00130-001' , null, null , null, null
+(10 , 'https://www.alldatasheet.com/view.jsp?Searchword=PIC-00130-001' , null, null , null, null
 , '4.5 a 17 VDC' , '4.5 VDC' , '17 VDC');
 
 
@@ -298,6 +319,7 @@ select * from componentes_capacitores_electroliticos;
 
 
 
+
 -- ---------------------------------------------------------------------------
 
 -- ---------------------------------------------------------------------------
@@ -306,15 +328,26 @@ select * from componentes_capacitores_electroliticos;
 
 -- ======= TABLA COMPONENTES_MICROCONTROLADORES_RISC_PICS ===========
 
+
+
 describe componentes_microcontroladores_risc_pics;
+
+select * from componentes;
 
 insert into componentes_microcontroladores_risc_pics(id_componente , frec_operacion
 , memoria_programa , memoria_datos , memoria_datos_eeprom , cantidad_fuentes_interrup
-, cantidad_timers ,  comunic_seriales , set_instrucciones ) values (
-7 ,'DC-40 Mhz' , '16384 bytes' , '768 bytes' , '256 bytes' , 19 , 4 , 'MSSP, Enhanced USART'
+, cantidad_timers ,  comunic_seriales , set_instrucciones ) values 
+(9 ,'DC-40 Mhz' , '16384 bytes' , '768 bytes' , '256 bytes' , 19 , 4 , 'MSSP, Enhanced USART'
 , '75 Instructions; 83 with Extended Instruction Set Enabled');
 
--- siguiente : https://pdf1.alldatasheet.com/datasheet-pdf/view/78820/KODENSHI/PIC-0103.html
+
+
+insert into componentes_microcontroladores_risc_pics(id_componente , frec_operacion
+, memoria_programa , memoria_datos , memoria_datos_eeprom , cantidad_fuentes_interrup
+, cantidad_timers ,  comunic_seriales , set_instrucciones ) values 
+(10 ,'-' , '-' , '-' , '-' , 19 , 4 , ' Enhanced USART'
+, '75 Instructions; 83 with Extended Instruction Set Enabled');
+
 
 select * from componentes_microcontroladores_risc_pics;
 
