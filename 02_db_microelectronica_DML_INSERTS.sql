@@ -3,7 +3,7 @@
  * --------------------------------
  * 
  * 
- * ========= DML =============
+ * ========= DML INSERTS=============
  */
  
  
@@ -26,6 +26,8 @@ delete from componentes_placas_esp32 cascade;
 alter sequence id_seq_comp restart;
 alter sequence id_seq_comp_det restart;
 alter sequence id_seq_comp_trans_bip restart;
+alter sequence id_seq_comp_cap_elect restart;
+alter sequence id_seq_comp_resis_alt_frec restart;
 
 alter sequence id_seq_comp_micr_risc_pics restart;
 alter sequence id_seq_comp_micr_risc_avrs restart;
@@ -91,38 +93,78 @@ insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , 
  );
  
  
+
  
+ 
+ -- https://ar.mouser.com/c/ds/passive-components/capacitors/aluminum-electrolytic-capacitors/
+ -- ============================ INSERTS CAPACITORES ELECTROLITICOS ===================================================
+ insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , fabricante , stock , precio) values
+ ('009-KLDIUAOASS','https://http2.mlstatic.com/D_NQ_NP_757161-MLA41722189255_052020-O.webp' 
+ , 'KLDIUAOASS' , 'Capacitores Electroliticos' , 'Capacitor Electrolitico de Aluminio Radial' , 'VISHAY', 20 , 1);
+ 
+  insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , fabricante , stock , precio) values
+ ('3097-JKSJHSBS6DVBDG','https://http2.mlstatic.com/D_NQ_NP_2X_938147-MLA47364644565_092021-F.webp' 
+ , 'BS6DVBDG' , 'Capacitores Electroliticos' , 'Capacitor Electrolitico de Aluminio Axial' , 'VISHAY', 18 , 1.6);
+ 
+ 
+ 
+  
  
  -- ============================ INSERTS RESISTORES DE ALTA FRECUENCIA ===================================================
 -- https://ar.mouser.com/ProductDetail/Vishay-Electro-Films/MIF2500BFKMGNHT5?qs=sGAEpiMZZMukHu%252BjC5l7YTdS15yq3RDAQ2ShXPLobqc%3D
 insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , fabricante , stock , precio) values
  ('594-MIF2500BFKMGNHT5' , 'https://ar.mouser.com/images/vishay/images/mif1000afkmgnht5_SPL.jpg' 
- , 'FKMGNHT5' , 'Resistores de Alta Frecuencia' , 'Resistores de alta frecuencia RF 25ohms 1% 100ppm' , 'VISHAY' , 800 , 5);
+ , 'FKMGNHT5' , 'Resistores de Alta Frecuencia' , 'Resistores de alta frecuencia RF 25ohms 1% 100ppm' 
+ , 'VISHAY' , 800 , 5);
  
  -- https://ar.mouser.com/ProductDetail/ATC-Kyocera-AVX/CS12010T0100GTR?qs=S4ILP0tmc7RtGe5NcuJBYQ%3D%3D
  insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , fabricante , stock , precio) values
  ('581-CS12010T0100GTR' , 'https://ar.mouser.com/images/americantechnicalceramics/images/ATCFT.jpg' 
- , 'T0100GTR' , 'Resistores de Alta Frecuencia' , 'Resistores de alta frecuencia RF 100ohms 2% 10W' , 'KYSHOCERA' , 1200 , 3);
+ , 'T0100GTR' , 'Resistores de Alta Frecuencia' , 'Resistores de alta frecuencia RF 100ohms 2% 10W' 
+ , 'KYSHOCERA' , 1200 , 3);
  
  
  
- 
- -- https://ar.mouser.com/c/ds/passive-components/capacitors/aluminum-electrolytic-capacitors/
- -- ============================ INSERTS CAPACITORES ELECTROLITICOS ===================================================
  
  
 -- https://www.kynix.com/Detail/10386/PIC18F4520-I%2FPT.html?gclid=Cj0KCQiAxc6PBhCEARIsAH8Hff0_9CtuRscm1qf3-50qS1D_lP8jdspHgQRWw904hpn6nC1sXRh4JnQaAlpxEALw_wcB
 
--- ======= INSERTS MICROCONTROLADORES_RISC_PICS ===========
+-- ======================= INSERTS MICROCONTROLADORES_RISC_PICS ========================================
 insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , fabricante , stock , precio) values
  ('HSFGDTTEE-KY0-PIC18F4520-I/PT' , 'https://www.kynix.com/uploadfiles/small/PIC18F4520-I2fPT_10386.jpg' 
- , 'KY0-PIC18F4520-I/PT' , 'Microcontroladores' , 'Microcontrolador PIC18F4520-I/PT' , 'Microchip' , 40 , 20 );
+ , 'KY0-PIC18F4520-I/PT' , 'Microcontroladores PICS' , 'Microcontrolador PIC18F4520-I/PT' , 'Microchip' , 40 , 20 );
 
 insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , fabricante , stock , precio) values
  ('HJDYETU-KY32-PIC-00130-001' , 'https://www.kynix.com/images/ic-package/SOP.jpg' 
- , 'KY32-PIC-00130-001' , 'Microcontroladores' , 'Microcontrolador PIC-00130-001' , 'T-Wins' , 34 , 30 );
+ , 'KY32-PIC-00130-001' , 'Microcontroladores PICS' , 'Microcontrolador PIC-00130-001' , 'T-Wins' , 34 , 30 );
  
   
+
+-- https://es.farnell.com/c/semiconductores-circuitos-integrados/microcontroladores-mcu/microcontroladores-mcu-de-8-bits?rango-de-producto=avr-atmega-family-atmega328-series-microcontrollers
+-- https://www.digikey.com/es/products/detail/microchip-technology/ATMEGA32-16AUR/2357031
+
+-- ======================= INSERTS MICROCONTROLADORES_RISC_AVRS ========================================
+
+insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , fabricante , stock , precio) values
+ ('ATMEGA32-16AURTR-ND' , 'https://media.digikey.com/Renders/Atmel%20Renders/313;44A;A;44.jpg' 
+ , '16AURTR-ND' , 'Microcontroladores AVRS' , 'Microcontrolador AVR ATMEGA32-16AUR' , 'Microchip Technology' , 10 , 30 );
+ 
+
+insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , fabricante , stock , precio) values
+ ('ATMEGA328P-MUR-JKSHJ67' , 'https://es.farnell.com/productimages/standard/en_GB/GE32QFN-40.jpg' 
+ , 'MUR-JKSHJ67' , 'Microcontroladores AVRS' , 'Microcontrolador AVR ATMEGA328P-MUR' , 'Microchip Technology' , 15 , 25 );
+ 
+    
+ 
+ 
+
+
+
+
+
+
+
+
  
  
  
@@ -169,6 +211,9 @@ insert into componentes_detalles(id_componente , hoja_de_datos , longitud , anch
 , null , null , null , null , '40 VDC' , '5 VDC', '60 VDC');
 
 
+
+
+
  -- ============================ INSERTS CAPACITORES ELECTROLITICOS ===================================================
 insert into componentes_detalles(id_componente , hoja_de_datos , longitud , ancho 
 , peso ,material, voltaje_recomendado , voltaje_min_entrada , voltaje_max_entrada)values
@@ -199,7 +244,7 @@ insert into componentes_detalles(id_componente , hoja_de_datos , longitud , anch
 
 
 
--- ======= INSERTS MICROCONTROLADORES_RISC_PICS ===========
+-- =================== INSERTS MICROCONTROLADORES_RISC_PICS ==========================
 -- https://www.kynix.com/Detail/10386/PIC18F4520-I%2FPT.html?gclid=Cj0KCQiAxc6PBhCEARIsAH8Hff0_9CtuRscm1qf3-50qS1D_lP8jdspHgQRWw904hpn6nC1sXRh4JnQaAlpxEALw_wcB
 
 insert into componentes_detalles(id_componente , hoja_de_datos , longitud , ancho 
@@ -211,6 +256,25 @@ insert into componentes_detalles(id_componente , hoja_de_datos , longitud , anch
 , peso ,material, voltaje_recomendado , voltaje_min_entrada , voltaje_max_entrada)values
 (10 , 'https://www.alldatasheet.com/view.jsp?Searchword=PIC-00130-001' , null, null , null, null
 , '4.5 a 17 VDC' , '4.5 VDC' , '17 VDC');
+
+
+
+
+-- =================== INSERTS MICROCONTROLADORES_RISC_AVRS ==========================
+-- https://es.farnell.com/microchip/atmega328p-mur/mcu-8bit-atmega-20mhz-mlf-32/dp/2425125
+
+insert into componentes_detalles(id_componente , hoja_de_datos , longitud , ancho 
+, peso ,material, voltaje_recomendado , voltaje_min_entrada , voltaje_max_entrada)values
+(11 , 'https://ww1.microchip.com/downloads/en/DeviceDoc/2503S.pdf' , null, null , null, null
+, '2.7 a 5.5 VDC' , '2.7 VDC' , '5.5 VDC');
+
+
+insert into componentes_detalles(id_componente , hoja_de_datos , longitud , ancho 
+, peso ,material, voltaje_recomendado , voltaje_min_entrada , voltaje_max_entrada)values
+(12 , 'https://www.farnell.com/datasheets/2047852.pdf' , null, null , null, null
+, '1.8 a 5.5 VDC' , '1.8 VDC' , '5.5 VDC');
+
+
 
 
 
@@ -349,5 +413,41 @@ insert into componentes_microcontroladores_risc_pics(id_componente , frec_operac
 , '75 Instructions; 83 with Extended Instruction Set Enabled');
 
 
+
+
 select * from componentes_microcontroladores_risc_pics;
 
+
+
+
+
+
+-- ---------------------------------------------------------------------------
+-- ---------------------------------------------------------------------------
+
+-- https://es.farnell.com/microchip/atmega328p-mur/mcu-8bit-atmega-20mhz-mlf-32/dp/2425125
+
+-- ======= TABLA COMPONENTES_MICROCONTROLADORES_RISC_AVRS ===========
+
+
+
+describe componentes_microcontroladores_risc_avrs;
+
+select * from componentes;
+
+-- https://ww1.microchip.com/downloads/en/DeviceDoc/2503S.pdf
+insert into componentes_microcontroladores_risc_avrs(id_componente , frec_operacion
+, tam_nucleo, tam_memoria_programa , tipo_memoria , cantidad_entr_sal
+,comunic_protocolos , temp_funcionamiento ) values 
+(11 ,'16MHz' , '8 bits' , '32KB (16K x 16)' , 'Memoria Flash' , 32 
+, 'I²C, SPI, UART/USART' , '-40°C ~ 85°C (TA)');
+
+-- https://www.farnell.com/datasheets/2047852.pdf
+insert into componentes_microcontroladores_risc_avrs(id_componente , frec_operacion
+, tam_nucleo, tam_memoria_programa , tipo_memoria , cantidad_entr_sal
+,comunic_protocolos , temp_funcionamiento ) values 
+(12 ,'20 MHz' , '8 bits' , '32KB ' , 'Memoria Flash' , 23 
+, 'I2C, SPI, USART' , '-40°C to 85°C');
+
+
+select * from componentes_microcontroladores_risc_avrs;

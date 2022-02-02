@@ -74,6 +74,13 @@ alter table componentes
 add constraint PK_componentes_id
 primary key(id);
 
+
+-- UNIQUE CODIGO
+alter table componentes
+add constraint UNIQUE_componentes_codigo
+unique (codigo);
+
+
 -- CHECK STOCK
 alter table componentes
 add constraint CHECK_componentes_stock
@@ -356,6 +363,53 @@ unique (id_componente);
 -- FK ID_COMPONENTE
 alter table componentes_microcontroladores_risc_pics
 add constraint CHECK_componentes_microcontroladores_risc_pics_id_componente
+foreign key(id_componente)
+references componentes(id);
+
+
+
+
+-- ---------------------------------------------------------------------------
+
+-- ---------------------------------------------------------------------------
+
+-- https://datasheetspdf.com/pdf/219613/ATMELCorporation/ATMEGA32/1
+
+-- ======= TABLA COMPONENTES_MICROCONTROLADORES_RISC_AVRS ===========
+
+create table componentes_microcontroladores_risc_avrs(
+	
+id 							char(2000)      default  id_seq_comp_micr_risc_avrs.nextval  not null,
+id_componente 				char(2000)      not null,
+frec_operacion               varchar2(50)    , --- DC-40 Mhz
+tam_nucleo               varchar2(50)    , --- 8 bits
+tam_memoria_programa             varchar2(50)     , ---  16384 bytes
+tipo_memoria                 varchar2(50)     , -- Memoria Flash
+cantidad_entr_sal              char(5)     , ---  32   
+comunic_protocolos           varchar2(200)     , --- I²C, SPI, UART/USART  
+temp_funcionamiento           varchar2(50)     ---  -40°C ~ 85°C (TA)
+
+);
+
+-- ======= Restricciones Tabla componentes_microcontroladores_risc_avrs ===========
+
+
+-- PRIMARY KEY (LO SETEAMOS ACA PORQUE AGREGAMOS EL AUTOINCREMENT EN LA TABLA)
+alter table componentes_microcontroladores_risc_avrs
+add constraint PK_componentes_microcontroladores_risc_avrs_id
+primary key(id);
+
+
+
+-- UNIQUE ID_COMPONENTE 
+alter table componentes_microcontroladores_risc_avrs
+add constraint UNIQUE_componentes_microcontroladores_risc_avrs_id_componente
+unique (id_componente);
+
+
+-- FK ID_COMPONENTE
+alter table componentes_microcontroladores_risc_avrs
+add constraint CHECK_componentes_microcontroladores_risc_avrs_id_componente
 foreign key(id_componente)
 references componentes(id);
 
