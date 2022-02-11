@@ -14,10 +14,10 @@ drop table componentes_transistores_bipolares cascade constraints;
 drop table componentes_transistores_mosfet cascade constraints;
 drop table componentes_capacitores_electroliticos cascade constraints;
 drop table componentes_resistores_alta_frecuencia cascade constraints;
-
 drop table componentes_microcontroladores_risc_pics cascade constraints;
 drop table componentes_microcontroladores_risc_avrs cascade constraints;
 drop table componentes_placas_arduinos cascade constraints;
+
 drop table componentes_placas_esp8266 cascade constraints;
 drop table componentes_placas_esp32 cascade constraints;
 
@@ -30,10 +30,10 @@ drop sequence id_seq_comp_trans_bip;
 drop sequence id_seq_comp_trans_mosf;
 drop sequence id_seq_comp_cap_elect;
 drop sequence id_seq_comp_resis_alt_frec;
-
 drop sequence id_seq_comp_micr_risc_pics;
 drop sequence id_seq_comp_micr_risc_avrs;
 drop sequence id_seq_comp_plac_arduinos;
+
 drop sequence id_seq_comp_plac_esp8266;
 drop sequence id_seq_comp_plac_esp32;
 
@@ -47,7 +47,8 @@ create sequence id_seq_comp_cap_elect start with 1 increment by 1 nocache nocycl
 create sequence id_seq_comp_resis_alt_frec start with 1 increment by 1 nocache nocycle;
 create sequence id_seq_comp_micr_risc_pics start with 1 increment by 1 nocache nocycle;
 create sequence id_seq_comp_micr_risc_avrs start with 1 increment by 1 nocache nocycle;
-create sequence id_seq_comp_plac_arduino start with 1 increment by 1 nocache nocycle;
+create sequence id_seq_comp_plac_arduinos start with 1 increment by 1 nocache nocycle;
+
 create sequence id_seq_comp_plac_esp8266 start with 1 increment by 1 nocache nocycle;
 create sequence id_seq_comp_plac_esp32 start with 1 increment by 1 nocache nocycle;
 
@@ -415,6 +416,103 @@ references componentes(id);
 
 
 
+
+
 -- ---------------------------------------------------------------------------
 
+-- ---------------------------------------------------------------------------
+
+-- https://docs.arduino.cc/resources/datasheets/A000066-datasheet.pdf
+
+-- ======= TABLA COMPONENTES_PLACAS_ARDUINOS ===========
+
+create table componentes_placas_arduinos(
+	
+id 							char(2000)      default  id_seq_comp_plac_arduinos.nextval  not null,
+id_componente 				char(2000)      not null,
+procesador                  varchar2(50)    , --- ATMega328P 
+frec_mem                    varchar2(20)    , -- 16 MHz
+tam_flash                   varchar2(20)    , -- 32 KB
+tam_sram                    varchar2(20)    , -- 2 KB
+tam_eeprom                  varchar2(20)    , -- 1 KB
+cantidad_entr_sal              char(5)     , ---  22   
+comunic_protocolos           varchar2(200)  --- I2C, SPI, UART
+);
+
+-- ======= Restricciones Tabla componentes_placas_arduinos ===========
+
+
+-- PRIMARY KEY (LO SETEAMOS ACA PORQUE AGREGAMOS EL AUTOINCREMENT EN LA TABLA)
+alter table componentes_placas_arduinos
+add constraint PK_componentes_placas_arduinos
+primary key(id);
+
+
+
+-- UNIQUE ID_COMPONENTE 
+alter table componentes_placas_arduinos
+add constraint UNIQUE_componentes_placas_arduinos
+unique (id_componente);
+
+
+-- FK ID_COMPONENTE
+alter table componentes_placas_arduinos
+add constraint CHECK_componentes_placas_arduinos
+foreign key(id_componente)
+references componentes(id);
+
+
+
+-- ---------------------------------------------------------------------------
+
+
+
+
+-- ---------------------------------------------------------------------------
+
+-- ---------------------------------------------------------------------------
+
+-- https://cdn-shop.adafruit.com/product-files/2471/0A-ESP8266__Datasheet__EN_v4.3.pdf
+
+-- ======= TABLA COMPONENTES_PLACAS_ESP8266 ===========
+
+create table componentes_placas_esp8266(
+	
+id 							char(2000)      default  id_seq_comp_plac_esp8266.nextval  not null,
+id_componente 				char(2000)      not null,
+procesador                  varchar2(100)    , --- CPU RISC de 32-bit: Tensilica Xtensa LX106 
+frec_mem                    varchar2(20)    , -- 80 MHz
+tam_flash                   varchar2(20)    , --  512 KB a 4 MB
+tam_sram                    varchar2(20)    , -- 64 KB
+cantidad_entr_sal              char(5)     , --- 16  
+comunic_protocolos           varchar2(100),  --- UART/SDIO/SPI/I2C/I2S/IR Remote Control
+prot_wifi                   varchar2(100),  -- 802.11 b/g/n
+rango_frec                  varchar2(100) -- 2.4G-2.5G (2400M-2483.5M)  
+);
+
+-- ======= Restricciones Tabla componentes_placas_esp8266 ===========
+
+
+-- PRIMARY KEY (LO SETEAMOS ACA PORQUE AGREGAMOS EL AUTOINCREMENT EN LA TABLA)
+alter table componentes_placas_esp8266
+add constraint PK_componentes_placas_esp8266
+primary key(id);
+
+
+
+-- UNIQUE ID_COMPONENTE 
+alter table componentes_placas_esp8266
+add constraint UNIQUE_componentes_placas_esp8266
+unique (id_componente);
+
+
+-- FK ID_COMPONENTE
+alter table componentes_placas_esp8266
+add constraint CHECK_componentes_placas_esp8266
+foreign key(id_componente)
+references componentes(id);
+
+
+
+-- ---------------------------------------------------------------------------
 

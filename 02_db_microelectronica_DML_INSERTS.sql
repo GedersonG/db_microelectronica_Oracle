@@ -14,7 +14,6 @@ delete from  componentes_transistores_bipolares cascade;
 delete from  componentes_transistores_mosfet cascade;
 delete from  componentes_capacitores_electroliticos cascade;
 delete from  componentes_resistores_alta_frecuencia cascade;
-
 delete from componentes_microcontroladores_risc_pics cascade ;
 delete from componentes_microcontroladores_risc_avrs cascade ;
 delete from componentes_placas_arduinos cascade;
@@ -28,11 +27,11 @@ alter sequence id_seq_comp_det restart;
 alter sequence id_seq_comp_trans_bip restart;
 alter sequence id_seq_comp_cap_elect restart;
 alter sequence id_seq_comp_resis_alt_frec restart;
-
 alter sequence id_seq_comp_micr_risc_pics restart;
 alter sequence id_seq_comp_micr_risc_avrs restart;
 alter sequence id_seq_comp_plac_arduinos restart;
 alter sequence id_seq_comp_plac_esp8266 restart;
+
 alter sequence id_seq_comp_plac_esp32 restart;
 
 
@@ -156,9 +155,35 @@ insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , 
  
     
  
+
+-- ======================= INSERTS PLACAS_ARDUINOS ========================================
  
+ -- https://docs.arduino.cc/resources/datasheets/A000066-datasheet.pdf
+insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , fabricante , stock , precio) values
+ ('KSHJETA-ARDUINO-UNO' , 'https://http2.mlstatic.com/D_NQ_NP_2X_603035-MLA41509685506_042020-F.webp' 
+ , 'ETA-ARDUINO-UNO' , 'Placas Arduino' , 'Placa Arduino Uno R3' , 'Arduino' , 30 , 10 );
+
+ 
+ -- http://www.agspecinfo.com/pdfs/M/MB0016.PDF
+insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , fabricante , stock , precio) values
+ ('JSHYUTT-ARDUINO-NANO' , 'https://http2.mlstatic.com/D_NQ_NP_2X_728208-MLA40243275480_122019-F.webp' 
+ , 'UTT-ARDUINO-NANO' , 'Placas Arduino' , 'Placa Arduino Nano V3.0' , 'Arduino' , 40 , 8 );
 
 
+
+
+-- ======================= INSERTS PLACAS_ESP8266 ========================================
+ 
+ -- https://cdn-shop.adafruit.com/product-files/2471/0A-ESP8266__Datasheet__EN_v4.3.pdf
+insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , fabricante , stock , precio) values
+ ('2471S0A-ESP8266' , 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/ESP-01.jpg/375px-ESP-01.jpg' 
+ , '0A-ESP8266' , 'Placas Esp8266' , 'Placa Esp8266 EX' , 'Espressif Systems' , 10 , 10 );
+
+ 
+ -- https://www.prometec.net/wemos-d1-esp8266-wifi/
+insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , fabricante , stock , precio) values
+ ('JD76FG6-DOIT-WEMOS-Mini' , 'https://www.esploradores.com/wp-content/uploads/2017/01/DOIT-WEMOS-Mini-NodeMCU-768x641.jpg' 
+ , 'DOIT-WEMOS-Mini' , 'Placas Esp8266' , 'Placa Wemos D1 Mini' , 'Wemos' , 12 , 8 );
 
 
 
@@ -278,6 +303,40 @@ insert into componentes_detalles(id_componente , hoja_de_datos , longitud , anch
 
 
 
+-- =================== INSERTS PLACAS_ARDUINO ==========================
+
+-- https://docs.arduino.cc/resources/datasheets/A000066-datasheet.pdf
+insert into componentes_detalles(id_componente , hoja_de_datos , longitud , ancho 
+, peso ,material, voltaje_recomendado , voltaje_min_entrada , voltaje_max_entrada)values
+(13 , 'https://docs.arduino.cc/resources/datasheets/A000066-datasheet.pdf' , null, null , null, null
+, '3.3 a 5.0 VDC' , '3.3 VDC' , '5.0 VDC');
+
+ -- http://www.agspecinfo.com/pdfs/M/MB0016.PDF
+insert into componentes_detalles(id_componente , hoja_de_datos , longitud , ancho 
+, peso ,material, voltaje_recomendado , voltaje_min_entrada , voltaje_max_entrada)values
+(14 , 'http://www.agspecinfo.com/pdfs/M/MB0016.PDF' , null, null , null, null
+, '3.0 a 3.3 VDC' , '3.0 VDC' , '3.3 VDC');
+
+
+-- =================== INSERTS PLACAS_ESP8266 ==========================
+
+ 
+  -- https://cdn-shop.adafruit.com/product-files/2471/0A-ESP8266__Datasheet__EN_v4.3.pdf
+insert into componentes_detalles(id_componente , hoja_de_datos , longitud , ancho 
+, peso ,material, voltaje_recomendado , voltaje_min_entrada , voltaje_max_entrada)values
+(15 , 'https://cdn-shop.adafruit.com/product-files/2471/0A-ESP8266__Datasheet__EN_v4.3.pdf' , null, null , null, null
+, '3.0 a 3.6 VDC' , '3.0 VDC' , '3.6 VDC');
+
+
+
+-- https://www.prometec.net/wemos-d1-esp8266-wifi/
+insert into componentes_detalles(id_componente , hoja_de_datos , longitud , ancho 
+, peso ,material, voltaje_recomendado , voltaje_min_entrada , voltaje_max_entrada)values
+(16 , 'https://www.esploradores.com/doitwemos-d1-mini-nodemcu/' , null, null , null, null
+, '3.3 a 5.0 VDC' , '3.3 VDC' , '5.0 VDC');
+
+
+
 
 
 select * from componentes_detalles;
@@ -390,7 +449,9 @@ select * from componentes_capacitores_electroliticos;
 
 -- Página Hoja de datos pics : https://www.kynix.com/Detail/10386/PIC18F4520-I%2FPT.html?gclid=Cj0KCQiAxc6PBhCEARIsAH8Hff0_9CtuRscm1qf3-50qS1D_lP8jdspHgQRWw904hpn6nC1sXRh4JnQaAlpxEALw_wcB
 
--- ======= TABLA COMPONENTES_MICROCONTROLADORES_RISC_PICS ===========
+-- ================================================================
+-- ======= TABLA COMPONENTES_MICROCONTROLADORES_RISC_PICS =========
+-- ================================================================
 
 
 
@@ -427,8 +488,9 @@ select * from componentes_microcontroladores_risc_pics;
 
 -- https://es.farnell.com/microchip/atmega328p-mur/mcu-8bit-atmega-20mhz-mlf-32/dp/2425125
 
--- ======= TABLA COMPONENTES_MICROCONTROLADORES_RISC_AVRS ===========
-
+-- ================================================================
+-- ======= TABLA COMPONENTES_MICROCONTROLADORES_RISC_AVRS =========
+-- ================================================================
 
 
 describe componentes_microcontroladores_risc_avrs;
@@ -451,3 +513,80 @@ insert into componentes_microcontroladores_risc_avrs(id_componente , frec_operac
 
 
 select * from componentes_microcontroladores_risc_avrs;
+
+
+-- ---------------------------------------------------------------------------
+-- ---------------------------------------------------------------------------
+
+
+-- ==================================================
+-- ======= TABLA COMPONENTES_PLACAS_ARDUINO =========
+-- ==================================================
+
+
+describe componentes_placas_arduinos;
+
+select * from componentes;
+
+
+ -- https://docs.arduino.cc/resources/datasheets/A000066-datasheet.pdf
+
+insert into componentes_placas_arduinos(id_componente , procesador
+, frec_mem , tam_flash , tam_sram , tam_eeprom , cantidad_entr_sal 
+, comunic_protocolos ) values 
+(13 ,'ATMega 16U2 ' , '16 MHz' , '32KB Flash' , '2 KB' , '1 KB' 
+, 23 , 'I²C, SPI, UART/USART');
+
+
+ -- http://www.agspecinfo.com/pdfs/M/MB0016.PDF 
+insert into componentes_placas_arduinos(id_componente , procesador
+, frec_mem , tam_flash , tam_sram , tam_eeprom , cantidad_entr_sal 
+, comunic_protocolos ) values 
+(14 ,'ATmega328p' , '16 MHz' , '32KB Flash' , '2 KB' , '1 KB' 
+, 14 , 'I²C, SPI, UART/USART');
+
+
+
+select * from componentes_placas_arduinos;
+
+
+
+
+
+-- ---------------------------------------------------------------------------
+-- ---------------------------------------------------------------------------
+
+
+-- ==================================================
+-- ======= TABLA COMPONENTES_PLACAS_ESP8266 =========
+-- ==================================================
+
+
+describe componentes_placas_esp8266;
+
+select * from componentes;
+
+
+
+-- https://cdn-shop.adafruit.com/product-files/2471/0A-ESP8266__Datasheet__EN_v4.3.pdf
+insert into componentes_placas_esp8266(id_componente , procesador
+, frec_mem , tam_flash , tam_sram , cantidad_entr_sal , comunic_protocolos
+, prot_wifi, rango_frec ) values 
+(15 ,'CPU RISC de 32-bit: Tensilica Xtensa LX106 ' , '80 MHz' , '512 KB a 4 MB' , '64 KB'  
+, 16 , 'UART/SDIO/SPI/I2C/I2S/IR Remote Control' ,'802.11 b/g/n' , '2.4G-2.5G (2400M-2483.5M)');
+
+
+-- https://www.prometec.net/wemos-d1-esp8266-wifi/
+insert into componentes_placas_esp8266(id_componente , procesador
+, frec_mem , tam_flash , tam_sram , cantidad_entr_sal , comunic_protocolos
+, prot_wifi, rango_frec ) values 
+(16 ,'CPU RISC de 32-bit: Tensilica Xtensa LX1012 ' , '80 MHz' , '200 KB a 2 MB' , '45 KB'  
+, 9 , 'UART/SDIO/SPI/I2C' , '802.11 b/g/n' , '2.4G-2.5G (2400M-2483.5M)');
+
+
+
+
+
+select * from componentes_placas_esp8266;
+
+
