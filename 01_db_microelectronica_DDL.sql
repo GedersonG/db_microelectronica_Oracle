@@ -17,8 +17,8 @@ drop table componentes_resistores_alta_frecuencia cascade constraints;
 drop table componentes_microcontroladores_risc_pics cascade constraints;
 drop table componentes_microcontroladores_risc_avrs cascade constraints;
 drop table componentes_placas_arduinos cascade constraints;
-
 drop table componentes_placas_esp8266 cascade constraints;
+
 drop table componentes_placas_esp32 cascade constraints;
 
 
@@ -33,8 +33,8 @@ drop sequence id_seq_comp_resis_alt_frec;
 drop sequence id_seq_comp_micr_risc_pics;
 drop sequence id_seq_comp_micr_risc_avrs;
 drop sequence id_seq_comp_plac_arduinos;
-
 drop sequence id_seq_comp_plac_esp8266;
+
 drop sequence id_seq_comp_plac_esp32;
 
 
@@ -48,8 +48,8 @@ create sequence id_seq_comp_resis_alt_frec start with 1 increment by 1 nocache n
 create sequence id_seq_comp_micr_risc_pics start with 1 increment by 1 nocache nocycle;
 create sequence id_seq_comp_micr_risc_avrs start with 1 increment by 1 nocache nocycle;
 create sequence id_seq_comp_plac_arduinos start with 1 increment by 1 nocache nocycle;
-
 create sequence id_seq_comp_plac_esp8266 start with 1 increment by 1 nocache nocycle;
+
 create sequence id_seq_comp_plac_esp32 start with 1 increment by 1 nocache nocycle;
 
 
@@ -513,6 +513,57 @@ foreign key(id_componente)
 references componentes(id);
 
 
+-- ---------------------------------------------------------------------------
 
 -- ---------------------------------------------------------------------------
 
+-- https://www.mouser.com/datasheet/2/891/esp-wroom-32_datasheet_en-1223836.pdf
+-- https://www.microelectronicash.com/downloads/ESP32_MANUAL.pdf
+
+-- ======= TABLA COMPONENTES_PLACAS_ESP32 ===========
+
+create table componentes_placas_esp32(
+	
+id 							char(2000)      default  id_seq_comp_plac_esp32.nextval  not null,
+id_componente 				char(2000)      not null,
+procesador                  varchar2(100)    , --- Procesador ARM Xtensa single-/dual-core 32-bit LX6
+frec_mem                    varchar2(20)    , -- -
+tam_flash                   varchar2(20)    , --  -
+tam_sram                    varchar2(20)    , -- -
+cantidad_entr_sal              char(5)     , --- -  
+comunic_protocolos           varchar2(100),  --- UART/SDIO/SPI/I2C/I2S/IR Remote Control
+prot_wifi                   varchar2(100),  -- 802.11 b/g/n (802.11n up to 150 Mbps)
+rango_frec                  varchar2(100), -- 2.4G-2.5G 
+modo_wifi                   varchar2(100), -- Station/SoftAP/SoftAP+Station/P2P
+seg_wifi                     varchar2(100), -- WPA/WPA2/WPA2-Enterprise/WPS
+prot_bluetooth              varchar2(100) -- Bluetooth v4.2 BR/EDR and BLE specification 
+);
+
+-- ======= Restricciones Tabla componentes_placas_esp32 ===========
+
+
+-- PRIMARY KEY (LO SETEAMOS ACA PORQUE AGREGAMOS EL AUTOINCREMENT EN LA TABLA)
+alter table componentes_placas_esp32
+add constraint PK_componentes_placas_esp32
+primary key(id);
+
+
+
+-- UNIQUE ID_COMPONENTE 
+alter table componentes_placas_esp32
+add constraint UNIQUE_componentes_placas_esp32
+unique (id_componente);
+
+
+-- FK ID_COMPONENTE
+alter table componentes_placas_esp32
+add constraint CHECK_componentes_placas_esp32
+foreign key(id_componente)
+references componentes(id);
+
+
+
+describe componentes_placas_esp32;
+
+
+-- ---------------------------------------------------------------------------

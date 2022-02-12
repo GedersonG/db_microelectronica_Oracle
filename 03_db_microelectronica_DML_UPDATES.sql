@@ -166,3 +166,39 @@ update componentes_transistores_mosfet set tipo = upper(tipo);
 select * from componentes_transistores_mosfet;
 
 
+
+
+
+-- ---------------------------------------------------------------------------
+-- ---------------------------------------------------------------------------
+
+
+-- ===========================================================
+-- ======= TABLA COMPONENTES_CAPACITORES_ELECTROLITICOS=======
+-- ===========================================================
+
+select * from componentes;
+select * from componentes_detalles;
+select * from componentes_capacitores_electroliticos;
+
+describe componentes_capacitores_electroliticos;
+
+
+-- Actualizamos los caracteres del campo capacitancias de los capacitores 
+update componentes_capacitores_electroliticos set capacitancia = replace(capacitancia, '?' , 'µ');
+
+
+
+-- Actualizamos la Capacitancia del Capacitor segun el numero de serie BS6DVBDG
+update (select capacitancia 
+from componentes_capacitores_electroliticos inner join componentes 
+on componentes_capacitores_electroliticos.id_componente = componentes.id
+where componentes.nro_pieza = 'BS6DVBDG'
+)set capacitancia = '25 µF a 10 000 µF';
+
+
+select * from componentes_capacitores_electroliticos;
+
+
+
+

@@ -31,7 +31,6 @@ alter sequence id_seq_comp_micr_risc_pics restart;
 alter sequence id_seq_comp_micr_risc_avrs restart;
 alter sequence id_seq_comp_plac_arduinos restart;
 alter sequence id_seq_comp_plac_esp8266 restart;
-
 alter sequence id_seq_comp_plac_esp32 restart;
 
 
@@ -188,6 +187,23 @@ insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , 
 
 
 
+-- ======================= INSERTS PLACAS_ESP32 ========================================
+ 
+ -- https://pdf1.alldatasheet.com/datasheet-pdf/view/1148034/ESPRESSIF/ESP-WROOM-02U.html
+insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , fabricante , stock , precio) values
+ ('HJSHKWROOM-ESP32' , 'https://ar.mouser.com/images/espressifsystems/lrg/ESP32-DevKitC-32UE_SPL.jpg' 
+ , 'WROOM-ESP32' , 'Placas Esp32' , 'Placa Esp32 WROOM 32ue' , 'Espressif Systems' , 5 , 20 );
+
+
+ -- https://www.mouser.com/datasheet/2/891/esp-wroom-32_datasheet_en-1223836.pdf
+insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , fabricante , stock , precio) values
+ ('H789DHJUi-ESP32' , 'https://tienda.ityt.com.ar/23642-large_default/modulo-wifi-bluetooth-esp32-esp-wroom-32-espressif-itytarg.jpg' 
+ , 'DHJUi-ESP32i' , 'Placas Esp32' , 'Placa ESP32 WROOM' , 'Espressif Systems' , 5 , 15  );
+
+
+
+
+
 
 
  
@@ -335,6 +351,24 @@ insert into componentes_detalles(id_componente , hoja_de_datos , longitud , anch
 (16 , 'https://www.esploradores.com/doitwemos-d1-mini-nodemcu/' , null, null , null, null
 , '3.3 a 5.0 VDC' , '3.3 VDC' , '5.0 VDC');
 
+
+ 
+ 
+-- =================== INSERTS PLACAS_ESP32 ==========================
+
+
+ -- https://pdf1.alldatasheet.com/datasheet-pdf/view/1148034/ESPRESSIF/ESP-WROOM-02U.html
+insert into componentes_detalles(id_componente , hoja_de_datos , longitud , ancho 
+, peso ,material, voltaje_recomendado , voltaje_min_entrada , voltaje_max_entrada)values
+(17 , 'https://pdf1.alldatasheet.com/datasheet-pdf/view/1148034/ESPRESSIF/ESP-WROOM-02U.html' , null, null , null, null
+, '2.7 a 3.6 VDC' , '2.7 VDC' , '3.6 VDC');
+
+
+-- https://www.mouser.com/datasheet/2/891/esp-wroom-32_datasheet_en-1223836.pdf
+insert into componentes_detalles(id_componente , hoja_de_datos , longitud , ancho 
+, peso ,material, voltaje_recomendado , voltaje_min_entrada , voltaje_max_entrada)values
+(18 , 'https://www.mouser.com/datasheet/2/891/esp-wroom-32_datasheet_en-1223836.pdf' , null, null , null, null
+, '2.7 a 3.6 VDC' , '2.7 VDC' , '3.6 VDC');
 
 
 
@@ -588,5 +622,49 @@ insert into componentes_placas_esp8266(id_componente , procesador
 
 
 select * from componentes_placas_esp8266;
+
+
+
+
+
+
+
+-- ---------------------------------------------------------------------------
+-- ---------------------------------------------------------------------------
+
+
+-- ==================================================
+-- ======= TABLA COMPONENTES_PLACAS_ESP32 =========
+-- ==================================================
+
+
+describe componentes_placas_esp32;
+
+select * from componentes;
+
+
+
+ -- https://pdf1.alldatasheet.com/datasheet-pdf/view/1148034/ESPRESSIF/ESP-WROOM-02U.html
+insert into componentes_placas_esp32(id_componente , procesador
+, frec_mem , tam_flash , tam_sram  , comunic_protocolos
+, prot_wifi, rango_frec, modo_wifi , seg_wifi , prot_bluetooth) values 
+(17 ,' ARM Xtensa 32-bit' , '-' , '-' , '-'  
+ , 'UART/HSPI/I2C/I2S/IR Remote Control' ,'802.11 b/g/n'
+ , '(2400M ~ 2483.5M) ' , 'Station/SoftAP/SoftAP + Station' , 'WPA/WPA2'
+ , 'Bluetooth v4.2 BR/EDR and BLE specification');
+
+
+-- https://www.mouser.com/datasheet/2/891/esp-wroom-32_datasheet_en-1223836.pdf
+insert into componentes_placas_esp32(id_componente , procesador
+, frec_mem , tam_flash , tam_sram  , comunic_protocolos
+, prot_wifi, rango_frec, modo_wifi , seg_wifi , prot_bluetooth) values 
+(18 ,'ARM Xtensa single-/dual-core 32-bit LX6' , '-' , '-' , '-'  
+ , 'UART/SDIO/SPI/I2C/I2S/IR Remote Control' ,'802.11 b/g/n (802.11n up to 150 Mbps)'
+ , '2.4G-2.5G ' , 'Station/SoftAP/SoftAP+Station/P2P' , 'WPA/WPA2/WPA2-Enterprise/WPS'
+ , 'Bluetooth v4.2 BR/EDR and BLE specification');
+
+
+
+select * from componentes_placas_esp32;
 
 
