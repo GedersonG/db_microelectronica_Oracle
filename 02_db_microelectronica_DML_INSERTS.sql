@@ -115,6 +115,7 @@ insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , 
  , 'FKMGNHT5' , 'Resistores de Alta Frecuencia' , 'Resistores de alta frecuencia RF 25ohms 1% 100ppm' 
  , 'VISHAY' , 800 , 5);
  
+ 
  -- https://ar.mouser.com/ProductDetail/ATC-Kyocera-AVX/CS12010T0100GTR?qs=S4ILP0tmc7RtGe5NcuJBYQ%3D%3D
  insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , fabricante , stock , precio) values
  ('581-CS12010T0100GTR' , 'https://ar.mouser.com/images/americantechnicalceramics/images/ATCFT.jpg' 
@@ -202,12 +203,6 @@ insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , 
 
 
 
-
-
-
-
- 
- 
  
  select * from componentes;
 
@@ -475,13 +470,38 @@ select * from componentes_capacitores_electroliticos;
 
 
 
+-- ---------------------------------------------------------------------------
+-- ---------------------------------------------------------------------------
+
+
+-- ===========================================================
+-- ======= TABLA RESISTORES DE ALTA FRECUENCIA ===============
+-- ===========================================================
+
+
+select * from componentes;
+select * from componentes_detalles;
+select * from componentes_resistores_alta_frecuencia;
+
+describe componentes_resistores_alta_frecuencia;
+
+-- https://ar.mouser.com/ProductDetail/Vishay-Electro-Films/MIF2500BFKMGNHT5?qs=sGAEpiMZZMukHu%252BjC5l7YTdS15yq3RDAQ2ShXPLobqc%3D
+insert into componentes_resistores_alta_frecuencia(id_componente, capacitancia ,rango_tolerancia
+, rango_resis_gral , rango_resis_microondas , capacitancia_parasita , rango_temperatura , tension_operativa
+)values( 7 , '-' , ' +- 1, +- 5, +- 10, +- 20 standard' , '20 to 100' , '+- 100' , '-' , ' - 55 to + 125' , '100 max.');
+
+ 
+ -- https://ar.mouser.com/ProductDetail/ATC-Kyocera-AVX/CS12010T0100GTR?qs=S4ILP0tmc7RtGe5NcuJBYQ%3D%3D
+insert into componentes_resistores_alta_frecuencia(id_componente, capacitancia ,rango_tolerancia
+, rango_resis_gral , rango_resis_microondas , capacitancia_parasita , rango_temperatura , tension_operativa
+)values( 8 , '4' , ' +- 40 standard' , '15 to 90' , '+- 120' , '-' , ' -' , '120 max.');
+
 
 
 -- ---------------------------------------------------------------------------
 
 -- ---------------------------------------------------------------------------
 
--- Página Hoja de datos pics : https://www.kynix.com/Detail/10386/PIC18F4520-I%2FPT.html?gclid=Cj0KCQiAxc6PBhCEARIsAH8Hff0_9CtuRscm1qf3-50qS1D_lP8jdspHgQRWw904hpn6nC1sXRh4JnQaAlpxEALw_wcB
 
 -- ================================================================
 -- ======= TABLA COMPONENTES_MICROCONTROLADORES_RISC_PICS =========
@@ -493,6 +513,7 @@ describe componentes_microcontroladores_risc_pics;
 
 select * from componentes;
 
+-- Página Hoja de datos pics : https://www.kynix.com/Detail/10386/PIC18F4520-I%2FPT.html?gclid=Cj0KCQiAxc6PBhCEARIsAH8Hff0_9CtuRscm1qf3-50qS1D_lP8jdspHgQRWw904hpn6nC1sXRh4JnQaAlpxEALw_wcB
 insert into componentes_microcontroladores_risc_pics(id_componente , frec_operacion
 , memoria_programa , memoria_datos , memoria_datos_eeprom , cantidad_fuentes_interrup
 , cantidad_timers ,  comunic_seriales , set_instrucciones ) values 

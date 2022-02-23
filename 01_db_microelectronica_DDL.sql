@@ -18,7 +18,6 @@ drop table componentes_microcontroladores_risc_pics cascade constraints;
 drop table componentes_microcontroladores_risc_avrs cascade constraints;
 drop table componentes_placas_arduinos cascade constraints;
 drop table componentes_placas_esp8266 cascade constraints;
-
 drop table componentes_placas_esp32 cascade constraints;
 
 
@@ -34,7 +33,6 @@ drop sequence id_seq_comp_micr_risc_pics;
 drop sequence id_seq_comp_micr_risc_avrs;
 drop sequence id_seq_comp_plac_arduinos;
 drop sequence id_seq_comp_plac_esp8266;
-
 drop sequence id_seq_comp_plac_esp32;
 
 
@@ -49,7 +47,6 @@ create sequence id_seq_comp_micr_risc_pics start with 1 increment by 1 nocache n
 create sequence id_seq_comp_micr_risc_avrs start with 1 increment by 1 nocache nocycle;
 create sequence id_seq_comp_plac_arduinos start with 1 increment by 1 nocache nocycle;
 create sequence id_seq_comp_plac_esp8266 start with 1 increment by 1 nocache nocycle;
-
 create sequence id_seq_comp_plac_esp32 start with 1 increment by 1 nocache nocycle;
 
 
@@ -296,7 +293,7 @@ capacitancia_parasita        varchar2(30)     , ---   0.2 pF
 --Caract. Térmicas			
 rango_temperatura			 varchar2(50)   , --- -55 to +125 °C
 --Caract. Eléctricas
-tension_operativo     	      varchar2(50)    ---  100 V
+tension_operativa    	      varchar2(50)    ---  100 V
 
 );
 
