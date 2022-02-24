@@ -70,7 +70,7 @@
 </br>
 
 ### Paso 1) Configuración de Oracle y Usuarios 
-#### (Primeramente deberás descargar el motor de base de datos de oracle  , luego algún GDB como por ej. SQLDeveloper y crear la db ).
+#### (Primeramente deberás descargar el motor de base de datos de oracle  , luego algún GDB como por ej. SQLDeveloper y crear el esquema del usuario o los usuarios de uso. Recordar que oracle trabaja a nivel base de datos con esquemas que se diversifican en diferentes usuarios, usuarios administradores, usuarios system ,etc. No existe en si una conexion para usar varias dbs como postgres o mysql, el concepto es mas complejo ).
 
 #### 1.1) Descarga de SQL Developer
 * https://www.oracle.com/ar/database/technologies/appdev/sqldeveloper-landing.html
@@ -86,6 +86,7 @@
 
 
 #### 1.3) Configuración de Oracle en SQL Developer (Conexión a Oracle).
+#### (Como se mencionó anteriormente, el entendimiento de almacenamiento de datos por parte de oracle es más complejo y a su vez más seguro, por eso cuando nos refiramos a bases de datos, sería el esquema de uso en sí, donde se van a poder levantar diferentes tipos de roles(usuarios y permisos))
 * Click sobre Nueva Conexión.
     * --> En `Name` colocamos `SYSTEM`
     * --> En `Usuario` colocamos `system`
