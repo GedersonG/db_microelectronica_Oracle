@@ -70,7 +70,7 @@
 </br>
 
 ### Paso 1) Configuración de Oracle y Usuarios 
-#### (Primeramente deberás descargar el motor de base de datos de oracle  , luego algún GDB como por ej. SQLDeveloper y crear la db ).
+#### (Primeramente deberás descargar el motor de base de datos de oracle  , luego algún GDB como por ej. SQLDeveloper y crear el esquema de conexión del usuario o los usuarios de uso. Recordar que oracle trabaja a nivel base de datos con esquemas de conexión que se diversifican a través de ciertas propiedades habilitadas para poder realizar operaciones de datos en la db. No existe en si una conexion para usar varias dbs como postgres o mysql, el concepto de bases de datos en oracle es mas complejo ).
 
 #### 1.1) Descarga de SQL Developer
 * https://www.oracle.com/ar/database/technologies/appdev/sqldeveloper-landing.html
@@ -86,8 +86,13 @@
 
 
 #### 1.3) Configuración de Oracle en SQL Developer (Conexión a Oracle).
+#### (Como se mencionó anteriormente, el entendimiento de almacenamiento de datos por parte de oracle es más complejo y a su vez acarrea mayor seguridad, por eso cuando nos refiramos a bases de datos, se apunta al esquema de uso en sí, donde se van a poder levantar diferentes tipos de roles(usuarios y permisos), entre otras cosas)
+
+</br>
+
+#### 1.3.1) Creación de una Conexión de tipo System para usos genéricos
 * Click sobre Nueva Conexión.
-    * --> En `Name` colocamos `SYSTEM`
+    * --> En `Name` colocamos `system`
     * --> En `Usuario` colocamos `system`
     * --> En `Contraseña` la ingresada al instalar oracle (en mi caso `admin`)
     * --> El resto lo dejamos todo por defecto ( Host, Port, etc ).
@@ -97,20 +102,21 @@
 
 
 
-#### 1.4) Creación de Esquemas de Usuarios
-#### ( Vamos a craer un Esquema de Usuarios por razones de seguridad, en este caso solamente de administradores de bases de datos, para asignarles ciertos privilegios sobre la misma, podriamos crear un usuario para desarrolladores, otro para otra área, etc. En mi caso solamente para administradores )
-* Aplicaremos el Esquema de Usuarios a través de Scripts
+#### 1.4) Creación de una Conexión para el Esquemas de la Base de Datos
+#### ( Vamos a craer un Esquema de Conexión para el manejo de nuestra db por razones de seguridad, en este caso solamente podrán manejar la misma los administradores de esta db con el usuario y contraseña correspondientes, para asignarles ciertos privilegios sobre la misma)
+* Primeramente debemos asegurarnos de que se haya establecido correctamente la conexión de tipo system para poder ejecutar lo siguiente
+* Aplicaremos el Esquema de Usuarios Administradores a través de un Script
 * Primeramente habilitamos la inserción a través de Scripts..
 ```sql
 -- == HABILITAMOS LOS SCRIPTS ==
 alter session set "_ORACLE_SCRIPT"=true;
 
 ```
-* Seguidamente vamos a crear un usuario con sus privilegios
-* Creamos un Usuario con su Contraseña..
+* Seguidamente vamos a crear el usuario con sus privilegios para poder utilizar posteriormente la conexión que crearemos
+* Creamos el Usuario administradores con su Contraseña..
 ```sql
 -- == CREACIÓN DE USUARIO ==
-create user administradores identified by administradores
+create user admin_microelectronica identified by admin_microelectronica
 ```
 * No colocamos las ; ya que es una linea de un comando que lo analizaremos por partes
 * Creamos el tablespace por defecto, que es la ubicación de almacenamiento donde se pueden guardar los datos/objetos de la base de datos y el tablespace temporal, para guardar los datos en sesion, cuando se desloguee el usuario estos datos se eliminan. Por último el limite de datos para el mismo, en este caso ilimitado, pero depende el area del usuario se le asignará un tamaño fijo
@@ -123,12 +129,13 @@ quota unlimited on system;
 
 ```sql
 -- == PRIVILEGIOS DEL USUARIO ==
-grant create session to administradores;
-grant create table to administradores;
-grant create view to administradores;
-grant create trigger to administradores;
-grant create procedure to administradores;
-grant create sequence to administradores;
+grant create session to admin_microelectronica;
+grant create table to admin_microelectronica;
+grant create view to admin_microelectronica;
+grant create trigger to admin_microelectronica;
+grant create procedure to admin_microelectronica;
+grant create sequence to admin_microelectronica;
+
 
 ```
 * Comando Completo..
@@ -136,29 +143,33 @@ grant create sequence to administradores;
 -- == HABILITAMOS LOS SCRIPTS ==
 alter session set "_ORACLE_SCRIPT"=true;
 
+-- == ELIMINAMOS EL O LOS POSIBLES USUARIOS CREADOS CON TABLAS, ETC ==
+drop user administradores cascade;
+
 -- == CREACIÓN DE USUARIO ==
-create user administradores identified by administradores
+create user admin_microelectronica identified by admin_microelectronica
 default tablespace system 
 temporary tablespace temp
 quota unlimited on system;
 
 
 -- == PRIVILEGIOS DEL USUARIO ==
-grant create session to administradores;
-grant create table to administradores;
-grant create view to administradores;
-grant create trigger to administradores;
-grant create procedure to administradores;
-grant create sequence to administradores;
+grant create session to admin_microelectronica;
+grant create table to admin_microelectronica;
+grant create view to admin_microelectronica;
+grant create trigger to admin_microelectronica;
+grant create procedure to admin_microelectronica;
+grant create sequence to admin_microelectronica;
+
 
 
 ```
 
-#### 1.5) Conexión del Usuario Administradores en Oracle 
+#### 1.5) Conexión del Usuario admin_microelectronica para nuestra db en Oracle 
 * Click sobre Nueva Conexión.
-    * --> En `Name` colocamos `ADMINISTRADORES`
-    * --> En `Usuario` colocamos `administradores`
-    * --> En `Contraseña` colocamos  `administradores`
+    * --> En `Name` colocamos `db_microelectronica`
+    * --> En `Usuario` colocamos el nombre del usuario creado `admin_microelectronica`
+    * --> En `Contraseña` colocamos  la contraselña del usuario creado `admin_microelectronica`
     * --> El resto lo dejamos todo por defecto ( Host, Port, etc ).
     * --> Testear la conexión con el boton `Probar` o `Test`
     * --> Por último click sobre el botón conectar, luego se pedirá Usuario y Contraseña, ingresar
