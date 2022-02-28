@@ -131,7 +131,8 @@ unique (id_componente);
 alter table componentes_detalles 
 add constraint FK_componentes_detalles_id_componente
 foreign key(id_componente)
-references componentes(id);
+references componentes(id)
+on delete cascade;
 
 
 -- ---------------------------------------------------------------------------
@@ -176,7 +177,8 @@ unique (id_componente);
 alter table componentes_transistores_bipolares 
 add constraint FK_componentes_transistores_bipolares_id_componente
 foreign key(id_componente)
-references componentes(id);
+references componentes(id)
+on delete cascade;
 
 
 
@@ -223,7 +225,8 @@ unique (id_componente);
 alter table componentes_transistores_mosfet
 add constraint FK_componentes_transistores_mosfet_id_componente
 foreign key(id_componente)
-references componentes(id);
+references componentes(id)
+on delete cascade;
 
 
 
@@ -269,7 +272,8 @@ unique (id_componente);
 alter table componentes_capacitores_electroliticos
 add constraint CHECK_componentes_capacitores_electroliticos_id_componente
 foreign key(id_componente)
-references componentes(id);
+references componentes(id)
+on delete cascade;
 
 
 
@@ -316,7 +320,8 @@ unique (id_componente);
 alter table componentes_resistores_alta_frecuencia
 add constraint CHECK_componentes_resistores_alta_frecuencia_id_componente
 foreign key(id_componente)
-references componentes(id);
+references componentes(id)
+on delete cascade;
 
 
 -- ---------------------------------------------------------------------------
@@ -362,7 +367,8 @@ unique (id_componente);
 alter table componentes_microcontroladores_risc_pics
 add constraint CHECK_componentes_microcontroladores_risc_pics_id_componente
 foreign key(id_componente)
-references componentes(id);
+references componentes(id)
+on delete cascade;
 
 
 
@@ -409,7 +415,8 @@ unique (id_componente);
 alter table componentes_microcontroladores_risc_avrs
 add constraint CHECK_componentes_microcontroladores_risc_avrs_id_componente
 foreign key(id_componente)
-references componentes(id);
+references componentes(id)
+on delete cascade;
 
 
 
@@ -456,7 +463,8 @@ unique (id_componente);
 alter table componentes_placas_arduinos
 add constraint CHECK_componentes_placas_arduinos
 foreign key(id_componente)
-references componentes(id);
+references componentes(id)
+on delete cascade;
 
 
 
@@ -507,7 +515,8 @@ unique (id_componente);
 alter table componentes_placas_esp8266
 add constraint CHECK_componentes_placas_esp8266
 foreign key(id_componente)
-references componentes(id);
+references componentes(id)
+on delete cascade;
 
 
 -- ---------------------------------------------------------------------------
@@ -556,7 +565,8 @@ unique (id_componente);
 alter table componentes_placas_esp32
 add constraint CHECK_componentes_placas_esp32
 foreign key(id_componente)
-references componentes(id);
+references componentes(id)
+on delete cascade;
 
 
 
