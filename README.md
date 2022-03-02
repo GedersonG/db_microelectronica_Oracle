@@ -72,13 +72,25 @@
 
 
 ## `Documentación y Guía Del Proyecto`
-#### (Esta Documentación y Guía que Desarrollé es para la Creación, Configuración, Manejo, Funciones, etc de la Base de Datos db_microelectroncia con Oracle XE en SQL Developer. Como así también para el Desarrollo de este Proyecto, DDL, DML, Vistas, Disparadores , Procedimientos, Indices, Gestión y Administración , Aplicaciones del Código, Gestión de Usuarios, Manejo de los Posibles Errores que pudiesen surgir, Uso de Git, Consideraciones y Declaraciones del Proyecto, etc. Recomiendo Leerla y Realizar todo paso a paso como se indica en la misma, cualquier aporte o sugerencia, informar al respecto).
+#### (Esta Documentación y Guía que Desarrollé es para la Creación, Configuración, Manejo, etc de la Base de Datos db_microelectroncia con Oracle XE en SQL Developer. Como así también para el Desarrollo de este Proyecto Gestión de Usuarios, Manejo de Posibles Errores, Uso de Git, Consideraciones y Declaraciones del Proyecto, etc. Recomiendo Leerla y Realizar todo paso a paso como se indica en la misma, cualquier aporte o sugerencia, informar al respecto).
 
 ## Indice
 
   #### Sección 1) Configuración de la Base de Datos
 
   - [ Paso 1) Configuración de Oracle y Usuarios.](#paso-1-configuración-de-oracle-y-usuarios)
+
+  #### Sección 2) Lenguaje de Definición de Datos (DDL)
+
+  - [ Paso 2) Archivo DDL.](#paso-2-archivo-ddl)
+
+  #### Sección 3) Lenguaje de Manipulación de Datos (DML)
+
+  - [ Paso 3) Archivos DML.](#paso-3-archivos-dml)
+
+  #### Sección 4) Consulta de Datos (QUERIES)
+
+  - [ Paso 4) Archivo QUERIES.](#paso-4-archivo-queries)
 
 
   
@@ -201,5 +213,65 @@ grant create sequence to admin_microelectronica;
     * --> Ya está la conexión configurada.
 
 
+</br>
 
+## Sección 2) Lenguaje de Definición de Datos (DDL)
+
+</br>
+
+### Paso 2) Archivo DDL 
+#### (En este Archivo se definen las estructuras de cada tabla, se crean las secuencias de los identificadores de registros y las Restricciones).
+
+* El modelo de secuencias para cada identificador de PK de cada Tabla es
+```sql
+create sequence nombre_del_identificador start with 1 increment by 1 nocache nocycle;
+```
+* Las Restricciones se declaran debajo de la creación de cada Tabla, las mismas son de tipo UNIQUE, CHECK Y FK, además de la PK 
+
+
+</br>
+
+## Sección 3) Lenguaje de Modelado de Datos (DML)
+
+</br>
+
+### Paso 3) Archivos DML
+
+### Paso 3.1) Archivo DML INSERTS
+#### (En este Archivo se insertan los datos de cada tabla).
+
+* La secuencia de inserción parte por la tabla componentes, luego componentes_detalles y seguidamente por cada una de las tablas especificas de cada componente
+* Hay datos que no se insertan para poder realizar la manipulación de estos campos en el archivo DML UPDATES
+* Por cada inserción se comenta la fuente de datos de los componentes
+
+</br>
+
+### Paso 3.2) Archivo DML UPDATES
+#### (En este Archivo se actualizan los datos de cada tabla).
+
+* En cada una de las actualización se especifica que se realiza
+* Se actualizan todas las tablas para el testeo de los datos y campos
+
+</br>
+
+### Paso 3.3) Archivo DML DELETES
+#### (En este Archivo se eliminan algunos registros de la base de datos).
+
+* En este Script se procede a eliminar e insertar registros de la base de datos.
+
+
+
+</br>
+
+## Sección 4) Consulta de Datos (QUERIES)
+
+</br>
+
+### Paso 4) Archivo QUERIES
+
+* En este Script se realizan las consultas necesarias de cada una de las tablas y entre tablas
+* Para los registros cuyos campos sean varchar y posean formato numerico indicando su unidad se realizan los cateos de datos pertinentes para su uso
+* Es evidente que se puede trabajar con campos numericos para agilizar el tiempo de consulta caso hipotetico de gran cantidad de registros, pero se optó por el manejo de varchar.
+* También es posible y considerable reducir nombres, también se optó por el uso de nombres largos por temas de comprensión de implementaciones, esto partirá en base al planteamiento del diseño que se quiera realizar y la lógica de negocio de cada empresa
+* Aclarado lo anterior también se acota que se sigue toda la convención de nombres y desarrollo, tanto para tablas, campos, diseño, etc.
 
