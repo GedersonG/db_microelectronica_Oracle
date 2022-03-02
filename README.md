@@ -32,7 +32,7 @@
 
 #### Diagrama Entidad Relación  `db_microelectronica`
 
-![Index app](https://github.com/andresWeitzel/db_microelectronica_Oracle)
+![Index app](https://github.com/andresWeitzel/db_microelectronica_Oracle/blob/master/doc/db_microelectronica_DER.png)
 
 
 
