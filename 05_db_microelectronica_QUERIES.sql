@@ -331,3 +331,158 @@ describe componentes_microcontroladores_risc_pics;
 select * from componentes;
 
 
+-- Cambiamos la frecuencia de operacion del pic con el codigo HJDYETU-KY32-PIC-00130-001
+update ( select frec_operacion, memoria_programa, memoria_datos from componentes_microcontroladores_risc_pics 
+inner join componentes on componentes.id = componentes_microcontroladores_risc_pics.id_componente
+where componentes.codigo = 'HJDYETU-KY32-PIC-00130-001')
+set frec_operacion = '34 Mhz';
+
+
+
+-- Seleccionamos el pic con el codigo HJDYETU-KY32-PIC-00130-001
+select frec_operacion, memoria_programa, memoria_datos from componentes_microcontroladores_risc_pics 
+inner join componentes on componentes.id = componentes_microcontroladores_risc_pics.id_componente
+where componentes.codigo = 'HJDYETU-KY32-PIC-00130-001';
+
+
+
+-- Microcontroladores cuya cantidad de timers sea mayor a 3
+select  frec_operacion, memoria_programa, memoria_datos, cast(cantidad_timers as integer) as cantidad_timers 
+from componentes_microcontroladores_risc_pics
+where cantidad_timers > 3 ;
+
+
+
+
+
+-- ---------------------------------------------------------------------------
+-- ---------------------------------------------------------------------------
+
+-- ================================================================
+-- ======= TABLA COMPONENTES_MICROCONTROLADORES_RISC_AVRS =========
+-- ================================================================
+
+select * from componentes_microcontroladores_risc_avrs;
+
+describe componentes_microcontroladores_risc_avrs;
+
+select * from componentes;
+
+
+-- Microcontroladores cuya cantidad de entrada y salidas sea mayor a 25 y el tamaño del nucleo sea de 8 bits
+select  frec_operacion, tam_nucleo , tam_memoria_programa, cast(cantidad_entr_sal as integer) as cantidad_entr_sal 
+from componentes_microcontroladores_risc_avrs
+where cantidad_entr_sal > 25 and tam_nucleo like '8 bits' ;
+
+
+-- Micros con protocolos SPI
+select  frec_operacion, tam_nucleo , tam_memoria_programa, cast(cantidad_entr_sal as integer) as cantidad_entr_sal
+, comunic_protocolos
+from componentes_microcontroladores_risc_avrs
+where comunic_protocolos like '%SPI%' ;
+
+
+-- Micros Ordenados segun su frecuencia de operacion
+select frec_operacion, tam_nucleo , tam_memoria_programa
+from componentes_microcontroladores_risc_avrs
+order by frec_operacion;
+
+
+
+
+-- ---------------------------------------------------------------------------
+-- ---------------------------------------------------------------------------
+
+
+-- ==================================================
+-- ======= TABLA COMPONENTES_PLACAS_ARDUINO =========
+-- ==================================================
+
+select * from componentes_placas_arduinos;
+
+describe componentes_placas_arduinos;
+
+select * from componentes;
+
+
+
+-- Placas Arduinos cuyas cantidad de entradas y salidas sean superior a 20 y posean protocolo I2C   
+select procesador, frec_mem, cast(cantidad_entr_sal as integer ) as cantidad_entr_sal, comunic_protocolos
+from componentes_placas_arduinos
+where comunic_protocolos like '%I2C%' and cantidad_entr_sal > 20;
+
+
+-- Placas Ordenados segun su procesador
+select procesador, frec_mem, cantidad_entr_sal, comunic_protocolos
+from componentes_placas_arduinos
+order by procesador;
+
+
+
+
+-- ---------------------------------------------------------------------------
+-- ---------------------------------------------------------------------------
+
+
+-- ==================================================
+-- ======= TABLA COMPONENTES_PLACAS_ESP8266 =========
+-- ==================================================
+
+select * from componentes_placas_esp8266;
+
+
+describe componentes_placas_esp8266;
+
+select * from componentes;
+
+
+-- Placas ESP8266 ordednadas cuyo procesador sea un Tensilica
+select procesador, frec_mem, tam_flash 
+from componentes_placas_esp8266
+where procesador like '%Tensilica%'
+order by procesador;
+
+
+--Placas ESP8266 que tengan SPI Y UART y su tengan 2.5G de frecuencia wifi
+select procesador, frec_mem, tam_flash, comunic_protocolos , rango_frec
+from componentes_placas_esp8266
+where comunic_protocolos like '%SPI%' and comunic_protocolos like '%UART%' 
+and rango_frec like '%2.5G%' or rango_frec like '%2.5 G%'
+order by procesador;
+
+
+
+
+
+-- ---------------------------------------------------------------------------
+-- ---------------------------------------------------------------------------
+
+
+-- ==================================================
+-- ======= TABLA COMPONENTES_PLACAS_ESP32 =========
+-- ==================================================
+
+select * from componentes_placas_esp32;
+
+
+describe componentes_placas_esp32;
+
+select * from componentes;
+
+
+
+-- Placas ESP32 ordenadas cuyo procesador sea un Xtensa
+select procesador, frec_mem, tam_flash , comunic_protocolos
+from componentes_placas_esp32
+where procesador like '%Xtensa%'
+order by procesador;
+
+
+
+-- Placas ESP32 ordenadas cuyo procesador sea un Xtensa y sea dual core
+select procesador, frec_mem, tam_flash , comunic_protocolos
+from componentes_placas_esp32
+where procesador like '%Xtensa%' 
+and procesador like '%dual-core%' or procesador like '%dual core%'
+order by procesador;
+
