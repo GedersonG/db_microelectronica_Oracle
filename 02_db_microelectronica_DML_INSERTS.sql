@@ -225,12 +225,12 @@ describe componentes_detalles;
 insert into componentes_detalles(id_componente , hoja_de_datos , longitud , ancho 
 , peso ,material, voltaje_recomendado , voltaje_min_entrada , voltaje_max_entrada)values
 (1 , 'https://www.alldatasheet.com/datasheet-pdf/pdf/335783/HUASHAN/KSH13005.html?gclid=CjwKCAiAlrSPBhBaEiwAuLSDUFeS6YrIZoRclGdfPAGVxkvXDpENZQ76uvZ1PCot50KcnlLYfYgNwBoCdwoQAvD_BwE' 
-, null , null , null , null , '25 VDC' , '12 VDC', '40 VDC');
+, '45mm' , '25mm' , '0.23 g' , 'silicio' , '25 VDC' , '12 VDC', '40 VDC');
 
 insert into componentes_detalles(id_componente , hoja_de_datos , longitud , ancho 
 , peso ,material, voltaje_recomendado , voltaje_min_entrada , voltaje_max_entrada)values
 (2 , 'https://alltransistors.com/adv/pdfdatasheet_inchange_semiconductor/3cd010g.pdf' 
-, null , null , null , null , '5 VDC' , '-24 VDC', '20 VDC');
+, '39mm' , '22mm' , '0.19 g' , 'silicio' , '5 VDC' , '-24 VDC', '20 VDC');
 
 
 
@@ -238,13 +238,13 @@ insert into componentes_detalles(id_componente , hoja_de_datos , longitud , anch
 insert into componentes_detalles(id_componente , hoja_de_datos , longitud , ancho 
 , peso ,material, voltaje_recomendado , voltaje_min_entrada , voltaje_max_entrada)values
 (3 , 'https://alltransistors.com/es/mosfet/transistor.php?transistor=18313' 
-, null , null , null , null , '35 VDC' , '20 VDC', '100 VDC');
+, '56mm' , '38mm' , '0.45 g' , ' metal-óxido-silicio' , '35 VDC' , '20 VDC', '100 VDC');
 
 
 insert into componentes_detalles(id_componente , hoja_de_datos , longitud , ancho 
 , peso ,material, voltaje_recomendado , voltaje_min_entrada , voltaje_max_entrada)values
 (4 , 'https://alltransistors.com/adv/pdfdatasheet_slkor/sl60n06.pdf' 
-, null , null , null , null , '40 VDC' , '5 VDC', '60 VDC');
+, '64mm' , '31mm' , '0.67 g' , ' metal-óxido-silicio' , '40 VDC' , '5 VDC', '60 VDC');
 
 
 
@@ -253,13 +253,13 @@ insert into componentes_detalles(id_componente , hoja_de_datos , longitud , anch
  -- ============================ INSERTS CAPACITORES ELECTROLITICOS ===================================================
 insert into componentes_detalles(id_componente , hoja_de_datos , longitud , ancho 
 , peso ,material, voltaje_recomendado , voltaje_min_entrada , voltaje_max_entrada)values
-(5 , 'https://ar.mouser.com/datasheet/2/427/136rvi-2888792.pdf' , null, null , null, null
+(5 , 'https://ar.mouser.com/datasheet/2/427/136rvi-2888792.pdf' , '71mm' , '21mm' , '0.97 g' , 'electrolito'
 , '10 a 100 VDC' , '10 VDC' , '100 VDC');
 
 
 insert into componentes_detalles(id_componente , hoja_de_datos , longitud , ancho 
 , peso ,material, voltaje_recomendado , voltaje_min_entrada , voltaje_max_entrada)values
-(6 , 'https://ar.mouser.com/datasheet/2/212/1/KEM_A4095_PEG228-1919468.pdf' , null, null , null, null
+(6 , 'https://ar.mouser.com/datasheet/2/212/1/KEM_A4095_PEG228-1919468.pdf' ,  '76mm' , '19mm' , '0.87 g' , 'electrolito'
 , '25 a 64 VDC' , '10 VDC' , '100 VDC');
 
 
@@ -268,13 +268,13 @@ insert into componentes_detalles(id_componente , hoja_de_datos , longitud , anch
  -- ============================ INSERTS RESISTORES DE ALTA FRECUENCIA ===================================================
 insert into componentes_detalles(id_componente , hoja_de_datos , longitud , ancho 
 , peso ,material, voltaje_recomendado , voltaje_min_entrada , voltaje_max_entrada)values
-(7 , 'https://www.vishay.com/docs/61038/mif.pdf' , null, null , null, null
+(7 , 'https://www.vishay.com/docs/61038/mif.pdf' ,  '19mm' , '12mm' , '0.11 g' , 'Nitrito de Tantanio'
 , '0 a 300 VDC' , '0 VDC' , '400 VDC');
 
 
 insert into componentes_detalles(id_componente , hoja_de_datos , longitud , ancho 
 , peso ,material, voltaje_recomendado , voltaje_min_entrada , voltaje_max_entrada)values
-(8 , 'https://ar.mouser.com/datasheet/2/40/resistive_prod_cs-1920496.pdf' , null, null , null, null
+(8 , 'https://ar.mouser.com/datasheet/2/40/resistive_prod_cs-1920496.pdf' , '17mm' , '9mm' , '0.08 g' , 'Nitrito de Tantanio'
 , '0 a 300 VDC' , '0 VDC' , '400 VDC');
 
 
@@ -285,12 +285,12 @@ insert into componentes_detalles(id_componente , hoja_de_datos , longitud , anch
 
 insert into componentes_detalles(id_componente , hoja_de_datos , longitud , ancho 
 , peso ,material, voltaje_recomendado , voltaje_min_entrada , voltaje_max_entrada)values
-(9 , 'https://www.kynix.com/uploadfiles/pdf8798/PIC18F4520-I2fPT_10386.pdf' , null, null , null, null
+(9 , 'https://www.kynix.com/uploadfiles/pdf8798/PIC18F4520-I2fPT_10386.pdf' , '189mm' , '110mm' , '0.110 g' , 'Metal'
 , '2 a 5.5 VDC' , '2.0 VDC' , '5.5 VDC');
 
 insert into componentes_detalles(id_componente , hoja_de_datos , longitud , ancho 
 , peso ,material, voltaje_recomendado , voltaje_min_entrada , voltaje_max_entrada)values
-(10 , 'https://www.alldatasheet.com/view.jsp?Searchword=PIC-00130-001' , null, null , null, null
+(10 , 'https://www.alldatasheet.com/view.jsp?Searchword=PIC-00130-001' ,  '192mm' , '190mm' , '0.130 g' , 'Metal'
 , '4.5 a 17 VDC' , '4.5 VDC' , '17 VDC');
 
 
@@ -301,13 +301,13 @@ insert into componentes_detalles(id_componente , hoja_de_datos , longitud , anch
 
 insert into componentes_detalles(id_componente , hoja_de_datos , longitud , ancho 
 , peso ,material, voltaje_recomendado , voltaje_min_entrada , voltaje_max_entrada)values
-(11 , 'https://ww1.microchip.com/downloads/en/DeviceDoc/2503S.pdf' , null, null , null, null
+(11 , 'https://ww1.microchip.com/downloads/en/DeviceDoc/2503S.pdf' , '212mm' , '112mm' , '0.180 g' , 'Metal'
 , '2.7 a 5.5 VDC' , '2.7 VDC' , '5.5 VDC');
 
 
 insert into componentes_detalles(id_componente , hoja_de_datos , longitud , ancho 
 , peso ,material, voltaje_recomendado , voltaje_min_entrada , voltaje_max_entrada)values
-(12 , 'https://www.farnell.com/datasheets/2047852.pdf' , null, null , null, null
+(12 , 'https://www.farnell.com/datasheets/2047852.pdf' , '222mm' , '177mm' , '0.123 g' , 'Metal'
 , '1.8 a 5.5 VDC' , '1.8 VDC' , '5.5 VDC');
 
 
@@ -319,13 +319,13 @@ insert into componentes_detalles(id_componente , hoja_de_datos , longitud , anch
 -- https://docs.arduino.cc/resources/datasheets/A000066-datasheet.pdf
 insert into componentes_detalles(id_componente , hoja_de_datos , longitud , ancho 
 , peso ,material, voltaje_recomendado , voltaje_min_entrada , voltaje_max_entrada)values
-(13 , 'https://docs.arduino.cc/resources/datasheets/A000066-datasheet.pdf' , null, null , null, null
+(13 , 'https://docs.arduino.cc/resources/datasheets/A000066-datasheet.pdf' ,   '334mm' , '223mm' , '0.230 g' , 'Metal-Aluminio'
 , '3.3 a 5.0 VDC' , '3.3 VDC' , '5.0 VDC');
 
  -- http://www.agspecinfo.com/pdfs/M/MB0016.PDF
 insert into componentes_detalles(id_componente , hoja_de_datos , longitud , ancho 
 , peso ,material, voltaje_recomendado , voltaje_min_entrada , voltaje_max_entrada)values
-(14 , 'http://www.agspecinfo.com/pdfs/M/MB0016.PDF' , null, null , null, null
+(14 , 'http://www.agspecinfo.com/pdfs/M/MB0016.PDF' ,  '324mm' , '224mm' , '0.213 g' , 'Metal-Aluminio'
 , '3.0 a 3.3 VDC' , '3.0 VDC' , '3.3 VDC');
 
 
@@ -335,15 +335,15 @@ insert into componentes_detalles(id_componente , hoja_de_datos , longitud , anch
   -- https://cdn-shop.adafruit.com/product-files/2471/0A-ESP8266__Datasheet__EN_v4.3.pdf
 insert into componentes_detalles(id_componente , hoja_de_datos , longitud , ancho 
 , peso ,material, voltaje_recomendado , voltaje_min_entrada , voltaje_max_entrada)values
-(15 , 'https://cdn-shop.adafruit.com/product-files/2471/0A-ESP8266__Datasheet__EN_v4.3.pdf' , null, null , null, null
-, '3.0 a 3.6 VDC' , '3.0 VDC' , '3.6 VDC');
+(15 , 'https://cdn-shop.adafruit.com/product-files/2471/0A-ESP8266__Datasheet__EN_v4.3.pdf' 
+, '182mm' , '115mm' , '0.330 g' , 'Aluminio' , '3.0 a 3.6 VDC' , '3.0 VDC' , '3.6 VDC');
 
 
 
 -- https://www.prometec.net/wemos-d1-esp8266-wifi/
 insert into componentes_detalles(id_componente , hoja_de_datos , longitud , ancho 
 , peso ,material, voltaje_recomendado , voltaje_min_entrada , voltaje_max_entrada)values
-(16 , 'https://www.esploradores.com/doitwemos-d1-mini-nodemcu/' , null, null , null, null
+(16 , 'https://www.esploradores.com/doitwemos-d1-mini-nodemcu/' , '199mm' , '176mm' , '0.220 g' , 'Aluminio'
 , '3.3 a 5.0 VDC' , '3.3 VDC' , '5.0 VDC');
 
 
@@ -355,15 +355,15 @@ insert into componentes_detalles(id_componente , hoja_de_datos , longitud , anch
  -- https://pdf1.alldatasheet.com/datasheet-pdf/view/1148034/ESPRESSIF/ESP-WROOM-02U.html
 insert into componentes_detalles(id_componente , hoja_de_datos , longitud , ancho 
 , peso ,material, voltaje_recomendado , voltaje_min_entrada , voltaje_max_entrada)values
-(17 , 'https://pdf1.alldatasheet.com/datasheet-pdf/view/1148034/ESPRESSIF/ESP-WROOM-02U.html' , null, null , null, null
-, '2.7 a 3.6 VDC' , '2.7 VDC' , '3.6 VDC');
+(17 , 'https://pdf1.alldatasheet.com/datasheet-pdf/view/1148034/ESPRESSIF/ESP-WROOM-02U.html' 
+, '123mm' , '112mm' , '0.167 g' , 'Aluminio', '2.7 a 3.6 VDC' , '2.7 VDC' , '3.6 VDC');
 
 
 -- https://www.mouser.com/datasheet/2/891/esp-wroom-32_datasheet_en-1223836.pdf
 insert into componentes_detalles(id_componente , hoja_de_datos , longitud , ancho 
 , peso ,material, voltaje_recomendado , voltaje_min_entrada , voltaje_max_entrada)values
-(18 , 'https://www.mouser.com/datasheet/2/891/esp-wroom-32_datasheet_en-1223836.pdf' , null, null , null, null
-, '2.7 a 3.6 VDC' , '2.7 VDC' , '3.6 VDC');
+(18 , 'https://www.mouser.com/datasheet/2/891/esp-wroom-32_datasheet_en-1223836.pdf' 
+, '154mm' , '132mm' , '0.120 g' , 'Aluminio' , '2.7 a 3.6 VDC' , '2.7 VDC' , '3.6 VDC');
 
 
 
