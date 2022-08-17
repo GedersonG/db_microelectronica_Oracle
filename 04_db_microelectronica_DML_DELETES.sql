@@ -34,7 +34,7 @@ delete from componentes where id = 30;
 
  -- https://www.mouser.com/datasheet/2/891/esp-wroom-32_datasheet_en-1223836.pdf
 insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , fabricante , stock , precio) values
- ('H789DHJUi-ESP32' , 'https://tienda.ityt.com.ar/23642-large_default/modulo-wifi-bluetooth-esp32-esp-wroom-32-espressif-itytarg.jpg' 
+ ('H789DHJUi-ESP32' , 'https://raw.githubusercontent.com/andresWeitzel/db_microelectronica_Oracle/master/files/placasEsp32/01_Placa%20Esp32%20WROOM%2032ue.webp' 
  , 'DHJUi-ESP32i' , 'Placas Esp32' , 'Placa ESP32 WROOM' , 'Espressif Systems' , 5 , 15  );
 
 

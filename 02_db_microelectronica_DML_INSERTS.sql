@@ -67,49 +67,42 @@ describe componentes;
 --- https://alltransistors.com/es/transistor.php?transistor=69829
 -- ============================ INSERTS TRANSISTORES BJT ===================================================
 insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , fabricante , stock , precio) values
-('HDGHFK-KSH13005' , 'https://images.alldatasheet.es/semiconductor/electronic_parts/datasheet/335783/HUASHAN/KSH13005.GIF' 
+('HDGHFK-KSH13005' , 'https://raw.githubusercontent.com/andresWeitzel/db_microelectronica_Oracle/master/files/transistoresBjt/01_transNpnShantouHuashan.jpg' 
 ,'KSH13005' , 'Transistores BJT' , 'Transistor BJT NPN', 'SHANTOU HUASHAN', 300, 2.0
 );
 
 insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , fabricante , stock , precio) values
-('DFHSDK-3CD010G' , 'https://http2.mlstatic.com/D_NQ_NP_906581-MLA32747237952_112019-O.webp' 
+('DFHSDK-3CD010G' , 'https://raw.githubusercontent.com/andresWeitzel/db_microelectronica_Oracle/master/files/transistoresBjt/02_transPnpInchangeSemiConduc.jpg' 
 ,'3CD010G' , 'Transistores BJT' , 'Transistor BJT PNP', 'INCHANGE SEMICONDUCTOR', 400, 5.0
 );
 
-
-
-
-
-
-
-
 insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , fabricante , stock , precio) values
-('JSHDLO-112JK8' , 'https://http2.mlstatic.com/D_NQ_NP_906581-MLA32747237952_112019-O.webp' 
+('JSHDLO-112JK8' , 'https://raw.githubusercontent.com/andresWeitzel/db_microelectronica_Oracle/master/files/transistoresBjt/03_transNpnCentralSemiConduc.webp' 
 ,'112JK8' , 'Transistores BJT' , 'Transistor BJT NPN', 'CENTRAL SEMICONDUCTOR', 200, 10.0
 );
 
 insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , fabricante , stock , precio) values
-('KSJSDK-3CD005H' , 'https://www.cdronline.com.ar/thumb/3658DCD905164D7199C7BCEDD00032AB.jpg' 
+('KSJSDK-3CD005H' , 'https://raw.githubusercontent.com/andresWeitzel/db_microelectronica_Oracle/master/files/transistoresBjt/04_transPnpCentralSemiConduc.jpg' 
 ,'3CD005H' , 'Transistores BJT' , 'Transistor BJT PNP', 'CENTRAL SEMICONDUCTOR', 320, 6.0
 );
 
 insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , fabricante , stock , precio) values
-('JSKSHDD-10QQKAA' , 'https://www.electrocomponentes.es/9937-large_default/transistor-bjt-2n4403-pnp-40v-200mhz-600ma-625mw-30-300-hfe.jpg' 
+('JSKSHDD-10QQKAA' , 'https://raw.githubusercontent.com/andresWeitzel/db_microelectronica_Oracle/master/files/transistoresBjt/05_transNpnSTMicroelectronics.webp' 
 ,'10QQKAA' , 'Transistores BJT' , 'Transistor BJT NPN', 'STMicroelectronics', 212, 4.0
 );
 
 insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , fabricante , stock , precio) values
-('KALDSHY-222AASA' , 'https://http2.mlstatic.com/D_NQ_NP_906581-MLA32747237952_112019-O.webp' 
+('KALDSHY-222AASA' , 'https://raw.githubusercontent.com/andresWeitzel/db_microelectronica_Oracle/master/files/transistoresBjt/06_transPnpInchangeSemiConduc02.webp' 
 ,'222AASA' , 'Transistores BJT' , 'Transistor BJT PNP', 'INCHANGE SEMICONDUCTOR', 120, 3.0
 );
 
 insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , fabricante , stock , precio) values
-('JAKYQQW-918SPAA' , 'https://http2.mlstatic.com/D_NQ_NP_906581-MLA32747237952_112019-O.webp' 
+('JAKYQQW-918SPAA' , 'https://raw.githubusercontent.com/andresWeitzel/db_microelectronica_Oracle/master/files/transistoresBjt/07_transNpnRenesasElectr.jpg' 
 ,'918SPAA' , 'Transistores BJT' , 'Transistor BJT NPN', 'Renesas Electronics', 100, 9.0
 );
 
 insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , fabricante , stock , precio) values
-('KSUTEYU-9A0SNS' , 'https://m.media-amazon.com/images/I/51WFa0N7BOL._SX342_.jpg' 
+('KSUTEYU-9A0SNS' , 'https://raw.githubusercontent.com/andresWeitzel/db_microelectronica_Oracle/master/files/transistoresBjt/08_transPnpRenesasElectr.webp' 
 ,'9A0SNS' , 'Transistores BJT' , 'Transistor BJT PNP', 'RENESAS ELECTRONIC', 310, 8.0
 );
 
@@ -124,13 +117,13 @@ insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , 
 -- -- https://alltransistors.com/es/mosfet/transistor.php?transistor=18313
 -- ============================ INSERTS TRANSISTORES MOSFET ===================================================
 insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , fabricante , stock , precio) values
- ('JDHFYT-AP4519GED' , 'https://alltransistors.com/adv/pdfdatasheet_ape/image/ap4511gh-hf_0001.jpg'
+ ('JDHFYT-AP4519GED' , 'https://raw.githubusercontent.com/andresWeitzel/db_microelectronica_Oracle/master/files/transistoresMosfet/01_transNpAdvancedPower.webp'
  ,'AP4519GED' , 'Transistores MOSFET' , 'Transistor Mosfet NP' , 'Advanced Power' , 200 ,4.0
  );
  
  
  insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , fabricante , stock , precio) values
- ('HJDGHF-SL60N06' , 'https://http2.mlstatic.com/D_NQ_NP_2X_893006-MLA41523372205_042020-F.webp'
+ ('HJDGHF-SL60N06' , 'https://raw.githubusercontent.com/andresWeitzel/db_microelectronica_Oracle/master/files/transistoresMosfet/02_transNSlkor.webp'
  ,'SL60N06' , 'Transistores MOSFET' , 'Transistor Mosfet N' , 'Slkor' , 50 , 7.0
  );
  
@@ -141,39 +134,36 @@ insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , 
  -- https://ar.mouser.com/c/ds/passive-components/capacitors/aluminum-electrolytic-capacitors/
  -- ============================ INSERTS CAPACITORES ELECTROLITICOS ===================================================
  insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , fabricante , stock , precio) values
- ('009-KLDIUAOASS','https://http2.mlstatic.com/D_NQ_NP_757161-MLA41722189255_052020-O.webp' 
+ ('009-KLDIUAOASS','https://raw.githubusercontent.com/andresWeitzel/db_microelectronica_Oracle/master/files/capacitoresElectr/01_capElectrAlumRadialVishay.webp' 
  , 'KLDIUAOASS' , 'Capacitores Electroliticos' , 'Capacitor Electrolitico de Aluminio Radial' , 'VISHAY', 20 , 1);
  
   insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , fabricante , stock , precio) values
- ('3097-JKSJHSBS6DVBDG','https://http2.mlstatic.com/D_NQ_NP_2X_938147-MLA47364644565_092021-F.webp' 
+ ('3097-JKSJHSBS6DVBDG','https://raw.githubusercontent.com/andresWeitzel/db_microelectronica_Oracle/master/files/capacitoresElectr/02_capElectrAlumAxialVishay.webp' 
  , 'BS6DVBDG' , 'Capacitores Electroliticos' , 'Capacitor Electrolitico de Aluminio Axial' , 'VISHAY', 18 , 1.6);
  
- 
- 
- 
    insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , fabricante , stock , precio) values
- ('KLSIO9-A0EOSAA','https://unisalia.com/wp-content/uploads/2020/02/Electrolitico-Capacitor.jpg' 
+ ('KLSIO9-A0EOSAA','https://raw.githubusercontent.com/andresWeitzel/db_microelectronica_Oracle/master/files/capacitoresElectr/03_Capacitor%20Electrolitico%20de%20Polimero%20Organico%20panasonic.jpg' 
  , 'A0EOSAA' , 'Capacitores Electroliticos' , 'Capacitor Electrolitico de Polimero Organico' , 'PANASONIC', 50 , 2);
  
  
    insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , fabricante , stock , precio) values
- ('LSÑK871-JSKU99','https://cdn.awsli.com.br/600x700/550/550177/produto/25597090/ff9b0c9ee0.jpg' 
+ ('LSÑK871-JSKU99','https://raw.githubusercontent.com/andresWeitzel/db_microelectronica_Oracle/master/files/capacitoresElectr/04_Capacitor%20Electrolitico%20de%20Aluminio%20Encaje%20a%20Presi%C3%B3n%20hitachi.webp' 
  , 'JSKU99' , 'Capacitores Electroliticos' , 'Capacitor Electrolitico de Aluminio Encaje a Presión' , 'HITACHI', 67 , 3);
  
    insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , fabricante , stock , precio) values
- ('JSUKOW987-029IOKKL','https://http2.mlstatic.com/D_NQ_NP_633603-MLB44046058320_112020-O.jpg' 
+ ('JSUKOW987-029IOKKL','https://raw.githubusercontent.com/andresWeitzel/db_microelectronica_Oracle/master/files/capacitoresElectr/05_Capacitor%20Electrolitico%20de%20Aluminio%20Terminal%20Roscado%20elna.webp' 
  , '029IOKKL' , 'Capacitores Electroliticos' , 'Capacitor Electrolitico de Aluminio Terminal Roscado' , 'ELNA', 34 , 5);
  
    insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , fabricante , stock , precio) values
- ('LAKSHJ7-0SOJD7DD','https://i.ytimg.com/vi/fTvQ9dJ5F6Q/maxresdefault.jpg' 
+ ('LAKSHJ7-0SOJD7DD','https://raw.githubusercontent.com/andresWeitzel/db_microelectronica_Oracle/master/files/capacitoresElectr/06_Capacitor%20Electrolitico%20de%20Aluminio%20Axial%20suncon.webp' 
  , '0SOJD7DD' , 'Capacitores Electroliticos' , 'Capacitor Electrolitico de Aluminio Axial' , 'SUNCON', 22 , 2.5);
  
    insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , fabricante , stock , precio) values
- ('KSLPO0AH7-JS8SJ9KA','https://ipowerelectronics.com/4137-large_default/capacitores-electroliticos-10uf-a-450v.jpg' 
+ ('KSLPO0AH7-JS8SJ9KA','https://raw.githubusercontent.com/andresWeitzel/db_microelectronica_Oracle/master/files/capacitoresElectr/07_Capacitor%20Electrolitico%20de%20Aluminio%20Radial%20hitachi.jpg' 
  , 'JS8SJ9KA' , 'Capacitores Electroliticos' , 'Capacitor Electrolitico de Aluminio Radial' , 'HITACHI', 11 , 2.6);
  
    insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , fabricante , stock , precio) values
- ('ISUYTY89-0A0SHHHS','https://http2.mlstatic.com/D_NQ_NP_2X_938147-MLA47364644565_092021-F.webp' 
+ ('ISUYTY89-0A0SHHHS','https://raw.githubusercontent.com/andresWeitzel/db_microelectronica_Oracle/master/files/capacitoresElectr/08_Capacitor%20Electrolitico%20de%20Aluminio%20Terminal%20Roscado%20rubycon.webp' 
  , '0A0SHHHS' , 'Capacitores Electroliticos' , 'Capacitor Electrolitico de Aluminio Terminal Roscado' , 'RUBYCON', 32 , 2.5);
  
  
@@ -185,14 +175,14 @@ insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , 
  -- ============================ INSERTS RESISTORES DE ALTA FRECUENCIA ===================================================
 -- https://ar.mouser.com/ProductDetail/Vishay-Electro-Films/MIF2500BFKMGNHT5?qs=sGAEpiMZZMukHu%252BjC5l7YTdS15yq3RDAQ2ShXPLobqc%3D
 insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , fabricante , stock , precio) values
- ('594-MIF2500BFKMGNHT5' , 'https://ar.mouser.com/images/vishay/images/mif1000afkmgnht5_SPL.jpg' 
+ ('594-MIF2500BFKMGNHT5' , 'https://raw.githubusercontent.com/andresWeitzel/db_microelectronica_Oracle/master/files/resisAltaFrec/01_Resistores%20de%20alta%20frecuencia%20RF%2025ohms%201%25%20100ppm%20vishay.webp' 
  , 'FKMGNHT5' , 'Resistores de Alta Frecuencia' , 'Resistores de alta frecuencia RF 25ohms 1% 100ppm' 
  , 'VISHAY' , 800 , 5);
  
  
  -- https://ar.mouser.com/ProductDetail/ATC-Kyocera-AVX/CS12010T0100GTR?qs=S4ILP0tmc7RtGe5NcuJBYQ%3D%3D
  insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , fabricante , stock , precio) values
- ('581-CS12010T0100GTR' , 'https://ar.mouser.com/images/americantechnicalceramics/images/ATCFT.jpg' 
+ ('581-CS12010T0100GTR' , 'https://raw.githubusercontent.com/andresWeitzel/db_microelectronica_Oracle/master/files/resisAltaFrec/02_Resistores%20de%20alta%20frecuencia%20RF%20100ohms%202%25%2010W%20kyshocera.webp' 
  , 'T0100GTR' , 'Resistores de Alta Frecuencia' , 'Resistores de alta frecuencia RF 100ohms 2% 10W' 
  , 'KYSHOCERA' , 1200 , 3);
  
@@ -204,11 +194,11 @@ insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , 
 
 -- ======================= INSERTS MICROCONTROLADORES_RISC_PICS ========================================
 insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , fabricante , stock , precio) values
- ('HSFGDTTEE-KY0-PIC18F4520-I/PT' , 'https://www.kynix.com/uploadfiles/small/PIC18F4520-I2fPT_10386.jpg' 
+ ('HSFGDTTEE-KY0-PIC18F4520-I/PT' , 'https://raw.githubusercontent.com/andresWeitzel/db_microelectronica_Oracle/master/files/microsRiscPics/01_Microcontrolador%20PIC18F4520-IPT%20microcrip.webp' 
  , 'KY0-PIC18F4520-I/PT' , 'Microcontroladores PICS' , 'Microcontrolador PIC18F4520-I/PT' , 'Microchip' , 40 , 20 );
 
 insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , fabricante , stock , precio) values
- ('HJDYETU-KY32-PIC-00130-001' , 'https://www.kynix.com/images/ic-package/SOP.jpg' 
+ ('HJDYETU-KY32-PIC-00130-001' , 'https://raw.githubusercontent.com/andresWeitzel/db_microelectronica_Oracle/master/files/microsRiscPics/02_Microcontrolador%20PIC-00130-001%20t-winds.webp' 
  , 'KY32-PIC-00130-001' , 'Microcontroladores PICS' , 'Microcontrolador PIC-00130-001' , 'T-Wins' , 34 , 30 );
  
   
@@ -219,12 +209,12 @@ insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , 
 -- ======================= INSERTS MICROCONTROLADORES_RISC_AVRS ========================================
 
 insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , fabricante , stock , precio) values
- ('ATMEGA32-16AURTR-ND' , 'https://media.digikey.com/Renders/Atmel%20Renders/313;44A;A;44.jpg' 
+ ('ATMEGA32-16AURTR-ND' , 'https://raw.githubusercontent.com/andresWeitzel/db_microelectronica_Oracle/master/files/microsRiscAvrs/01_Microcontrolador%20AVR%20ATMEGA32-16AURmicrochip.webp' 
  , '16AURTR-ND' , 'Microcontroladores AVRS' , 'Microcontrolador AVR ATMEGA32-16AUR' , 'Microchip Technology' , 10 , 30 );
  
 
 insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , fabricante , stock , precio) values
- ('ATMEGA328P-MUR-JKSHJ67' , 'https://es.farnell.com/productimages/standard/en_GB/GE32QFN-40.jpg' 
+ ('ATMEGA328P-MUR-JKSHJ67' , 'https://raw.githubusercontent.com/andresWeitzel/db_microelectronica_Oracle/master/files/microsRiscAvrs/02_Microcontrolador%20AVR%20ATMEGA328P-MUR%20microchip.jpg' 
  , 'MUR-JKSHJ67' , 'Microcontroladores AVRS' , 'Microcontrolador AVR ATMEGA328P-MUR' , 'Microchip Technology' , 15 , 25 );
  
     
@@ -234,13 +224,13 @@ insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , 
  
  -- https://docs.arduino.cc/resources/datasheets/A000066-datasheet.pdf
 insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , fabricante , stock , precio) values
- ('KSHJETA-ARDUINO-UNO' , 'https://http2.mlstatic.com/D_NQ_NP_2X_603035-MLA41509685506_042020-F.webp' 
+ ('KSHJETA-ARDUINO-UNO' , 'https://raw.githubusercontent.com/andresWeitzel/db_microelectronica_Oracle/master/files/placasArduino/01_Placa%20Arduino%20Uno%20R3.webp' 
  , 'ETA-ARDUINO-UNO' , 'Placas Arduino' , 'Placa Arduino Uno R3' , 'Arduino' , 30 , 10 );
 
  
  -- http://www.agspecinfo.com/pdfs/M/MB0016.PDF
 insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , fabricante , stock , precio) values
- ('JSHYUTT-ARDUINO-NANO' , 'https://http2.mlstatic.com/D_NQ_NP_2X_728208-MLA40243275480_122019-F.webp' 
+ ('JSHYUTT-ARDUINO-NANO' , 'https://raw.githubusercontent.com/andresWeitzel/db_microelectronica_Oracle/master/files/placasArduino/02_Placa%20Arduino%20Nano%20V3.0.webp' 
  , 'UTT-ARDUINO-NANO' , 'Placas Arduino' , 'Placa Arduino Nano V3.0' , 'Arduino' , 40 , 8 );
 
 
@@ -250,13 +240,13 @@ insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , 
  
  -- https://cdn-shop.adafruit.com/product-files/2471/0A-ESP8266__Datasheet__EN_v4.3.pdf
 insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , fabricante , stock , precio) values
- ('2471S0A-ESP8266' , 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/ESP-01.jpg/375px-ESP-01.jpg' 
+ ('2471S0A-ESP8266' , 'https://raw.githubusercontent.com/andresWeitzel/db_microelectronica_Oracle/master/files/placasEsp8266/01_Placa%20Esp8266%20EX.webp' 
  , '0A-ESP8266' , 'Placas Esp8266' , 'Placa Esp8266 EX' , 'Espressif Systems' , 10 , 10 );
 
  
  -- https://www.prometec.net/wemos-d1-esp8266-wifi/
 insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , fabricante , stock , precio) values
- ('JD76FG6-DOIT-WEMOS-Mini' , 'https://www.esploradores.com/wp-content/uploads/2017/01/DOIT-WEMOS-Mini-NodeMCU-768x641.jpg' 
+ ('JD76FG6-DOIT-WEMOS-Mini' , 'https://raw.githubusercontent.com/andresWeitzel/db_microelectronica_Oracle/master/files/placasEsp8266/02_Placa%20Wemos%20D1%20Mini.webp' 
  , 'DOIT-WEMOS-Mini' , 'Placas Esp8266' , 'Placa Wemos D1 Mini' , 'Wemos' , 12 , 8 );
 
 
@@ -266,13 +256,13 @@ insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , 
  
  -- https://pdf1.alldatasheet.com/datasheet-pdf/view/1148034/ESPRESSIF/ESP-WROOM-02U.html
 insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , fabricante , stock , precio) values
- ('HJSHKWROOM-ESP32' , 'https://ar.mouser.com/images/espressifsystems/lrg/ESP32-DevKitC-32UE_SPL.jpg' 
+ ('HJSHKWROOM-ESP32' , 'https://raw.githubusercontent.com/andresWeitzel/db_microelectronica_Oracle/master/files/placasEsp32/01_Placa%20Esp32%20WROOM%2032ue.webp' 
  , 'WROOM-ESP32' , 'Placas Esp32' , 'Placa Esp32 WROOM 32ue' , 'Espressif Systems' , 5 , 20 );
 
 
  -- https://www.mouser.com/datasheet/2/891/esp-wroom-32_datasheet_en-1223836.pdf
 insert into componentes(codigo , imagen , nro_pieza , categoria , descripcion , fabricante , stock , precio) values
- ('H789DHJUi-ESP32' , 'https://tienda.ityt.com.ar/23642-large_default/modulo-wifi-bluetooth-esp32-esp-wroom-32-espressif-itytarg.jpg' 
+ ('H789DHJUi-ESP32' , 'https://raw.githubusercontent.com/andresWeitzel/db_microelectronica_Oracle/master/files/placasEsp32/02_Placa%20ESP32%20WROOM.webp' 
  , 'DHJUi-ESP32i' , 'Placas Esp32' , 'Placa ESP32 WROOM' , 'Espressif Systems' , 5 , 15  );
 
 
