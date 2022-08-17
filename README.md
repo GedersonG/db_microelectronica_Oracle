@@ -30,9 +30,28 @@
 
 </br>
 
-#### Diagrama Entidad Relación  `db_microelectronica`
+### Diagrama Entidad Relación  `db_microelectronica`
 
 ![Index app](https://github.com/andresWeitzel/db_microelectronica_Oracle/blob/master/doc/db_microelectronica_DER.png)
+
+
+</br>
+
+### Registros de Algunas Tablas
+
+#### Tabla `componentes`
+
+![Index app](https://github.com/andresWeitzel/db_microelectronica_Oracle/blob/master/doc/componentes_electronicos.png)
+
+
+#### Tabla `componentes_detalles`
+
+![Index app](https://github.com/andresWeitzel/db_microelectronica_Oracle/blob/master/doc/detalles_componentes.png)
+
+
+#### Tabla `componentes_transistores_bipolares`
+
+![Index app](https://github.com/andresWeitzel/db_microelectronica_Oracle/blob/master/doc/transistores_bipolares.png)
 
 
 
