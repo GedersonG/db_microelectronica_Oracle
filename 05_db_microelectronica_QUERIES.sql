@@ -12,6 +12,10 @@
 -- ===================================
 
 select * from componentes;
+select * from componentes_detalles;
+select * from componentes_transistores_bipolares;
+select * from componentes_transistores_mosfet;
+select * from componentes_capacitores_electroliticos;
 
 -- ===================== LIKE ===================
 
