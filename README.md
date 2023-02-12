@@ -19,10 +19,7 @@ Base de Datos acerca de Productos de Microelectrónica, tales como transistores,
  - [1.0) Descripción del Proyecto.](#10-descripción-)
  - [1.1) Ejecución del Proyecto.](#11-ejecución-del-proyecto-)
  - [1.2) Tecnologías.](#12-tecnologías-)
- - [1.3) Relaciones de Tablas.](#13-relaciones-de-tablas-)
- - [1.4) Restricciones de Tablas.](#14-restricciones-de-tablas-)
- 
-  
+
 ### Sección 2) Prueba de Funcionalidad y Referencias
  
  - [2.0) Prueba de Funcionalidad.](#20-prueba-de-funcionalidad-)
